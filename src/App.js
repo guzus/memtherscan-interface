@@ -1,24 +1,45 @@
 import './App.css'
 import React, { useEffect, useState } from 'react'
-import { AiOutlineRise, AiFillFormatPainter } from 'react-icons/ai'
+import {
+  AiFillCaretUp,
+  AiOutlineRise,
+  AiFillFormatPainter,
+  AiFillCaretDown,
+  AiFillMessage,
+} from 'react-icons/ai'
 
 function Image(props) {
   return (
-    <img src={props.url} alt="crypto-meme">
-      {props.value}
-    </img>
+    <div className="meme">
+      <img src={props.url} alt="crypto-meme">
+        {props.value}
+      </img>
+      <div className="vote">
+        <AiFillCaretUp />
+        upvote
+        <AiFillCaretDown />
+        downvote
+        <AiFillMessage />
+        comment
+      </div>
+    </div>
   )
+}
+
+function Upload() {
+  return <button className="tag upload">upload!</button>
 }
 
 function TagBar() {
   return (
     <div className="tags">
-      <div className="tag">
+      <button className="tag">
         <AiOutlineRise /> trending
-      </div>
-      <div className="tag">
+      </button>
+      <button className="tag">
         <AiFillFormatPainter /> ethereum merge
-      </div>
+      </button>
+      {Upload()}
     </div>
   )
 }
@@ -53,7 +74,10 @@ function App() {
 
   return (
     <div className="App">
-      <h3 className="title">Crypto Meme library of Alexandria</h3>
+      <h3 className="title">
+        Memtherscan -<div></div>
+        The Crypto Meme library of Alexandria
+      </h3>
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
       {TagBar()}
