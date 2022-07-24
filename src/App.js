@@ -1,11 +1,25 @@
 import './App.css'
 import React, { useEffect, useState } from 'react'
+import { AiOutlineRise, AiFillFormatPainter } from 'react-icons/ai'
 
 function Image(props) {
   return (
     <img src={props.url} alt="crypto-meme">
       {props.value}
     </img>
+  )
+}
+
+function TagBar() {
+  return (
+    <div className="tags">
+      <div className="tag">
+        <AiOutlineRise /> trending
+      </div>
+      <div className="tag">
+        <AiFillFormatPainter /> ethereum merge
+      </div>
+    </div>
   )
 }
 
@@ -42,6 +56,7 @@ function App() {
       <h3 className="title">Crypto Meme library of Alexandria</h3>
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
+      {TagBar()}
       <div>
         {data &&
           data.map(({ id, url }) => <div key={id}>{Image({ url })}</div>)}

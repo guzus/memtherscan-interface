@@ -8,6 +8,19 @@
   font-size: 5vw;
 }
 
+.tags {
+  display: flex;
+  flex-direction: row;
+}
+
+.tag {
+  color: azure;
+  font-size: 2vw;
+  margin: 1vw;
+  border: 0.1vw solid white;
+  border-radius: 0.5vw;
+}
+
 img {
   width: 90%;
 }
