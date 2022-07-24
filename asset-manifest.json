@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/crypto-meme/static/css/main.8aa7d73e.css",
-    "main.js": "/crypto-meme/static/js/main.294aca28.js",
+    "main.css": "/crypto-meme/static/css/main.28183316.css",
+    "main.js": "/crypto-meme/static/js/main.93dc49eb.js",
     "static/js/787.a9147c56.chunk.js": "/crypto-meme/static/js/787.a9147c56.chunk.js",
     "index.html": "/crypto-meme/index.html",
-    "main.8aa7d73e.css.map": "/crypto-meme/static/css/main.8aa7d73e.css.map",
-    "main.294aca28.js.map": "/crypto-meme/static/js/main.294aca28.js.map",
+    "main.28183316.css.map": "/crypto-meme/static/css/main.28183316.css.map",
+    "main.93dc49eb.js.map": "/crypto-meme/static/js/main.93dc49eb.js.map",
     "787.a9147c56.chunk.js.map": "/crypto-meme/static/js/787.a9147c56.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8aa7d73e.css",
-    "static/js/main.294aca28.js"
+    "static/css/main.28183316.css",
+    "static/js/main.93dc49eb.js"
   ]
 }
