@@ -7,6 +7,8 @@ import {
   AiFillCaretDown,
   AiFillMessage,
 } from 'react-icons/ai'
+import { Routes, Route, Link } from 'react-router-dom'
+import FileUploadPage from './Upload'
 
 function Image(props) {
   return (
@@ -27,7 +29,7 @@ function Image(props) {
 }
 
 function Upload() {
-  return <button className="tag upload">upload!</button>
+  return <Link to="/upload" className="tag upload">upload!</Link>
 }
 
 function TagBar() {
@@ -44,7 +46,7 @@ function TagBar() {
   )
 }
 
-function App() {
+function Home() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -85,6 +87,24 @@ function App() {
         {data &&
           data.map(({ id, url }) => <div key={id}>{Image({ url })}</div>)}
       </div>
+    </div>
+  )
+}
+
+function Detail() {
+  return <>hi</>
+}
+
+function App() {
+  return (
+    <div className="App">
+        <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/upload" element={<FileUploadPage />} />
+            {/*<Route path="/meme/*">*/}
+            {/*    <Detail />*/}
+            {/*</Route>*/}
+        </Routes>
     </div>
   )
 }
