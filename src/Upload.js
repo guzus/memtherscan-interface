@@ -1,8 +1,10 @@
+import './App.css';
 import React, {useState} from 'react';
 
 function FileUploadPage(){
     const [selectedFile, setSelectedFile] = useState();
     const [isFilePicked, setIsFilePicked] = useState(false);
+    const [isUploadSuccessful, setIsUploadSuccessful] = useState(false);
 
     const changeHandler = (event) => {
         setSelectedFile(event.target.files[0]);
@@ -24,6 +26,7 @@ function FileUploadPage(){
             .then((response) => response.json())
             .then((result) => {
                 console.log('Success:', result);
+                setIsUploadSuccessful(true);
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -44,10 +47,17 @@ function FileUploadPage(){
                     </p>
                 </div>
             ) : (
-                <p>Select a file to show details</p>
+                <p></p>
             )}
             <div>
                 <button onClick={handleSubmission}>Submit</button>
+            </div>
+            <div>
+                {isUploadSuccessful? (
+                    <div>success</div>
+                ) : (
+                    <></>
+                )}
             </div>
         </div>
     )

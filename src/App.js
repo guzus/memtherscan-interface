@@ -46,6 +46,7 @@ function TagBar() {
   )
 }
 
+// TODO: tag
 function Home() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -83,7 +84,7 @@ function Home() {
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
       {TagBar()}
-      <div>
+        <div>
         {data &&
           data.map(({ id, url }) => <div key={id}>{Image({ url })}</div>)}
       </div>
@@ -101,9 +102,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/upload" element={<FileUploadPage />} />
-            {/*<Route path="/meme/*">*/}
-            {/*    <Detail />*/}
-            {/*</Route>*/}
+            <Route path="/meme/*" element={<Detail />} />
         </Routes>
     </div>
   )
