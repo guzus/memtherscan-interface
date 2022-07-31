@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.4147d96a.css",
-    "main.js": "/static/js/main.84344379.js",
-    "static/js/787.a9147c56.chunk.js": "/static/js/787.a9147c56.chunk.js",
-    "index.html": "/index.html",
-    "main.4147d96a.css.map": "/static/css/main.4147d96a.css.map",
-    "main.84344379.js.map": "/static/js/main.84344379.js.map",
-    "787.a9147c56.chunk.js.map": "/static/js/787.a9147c56.chunk.js.map"
+    "main.css": "/crypto-meme/static/css/main.4147d96a.css",
+    "main.js": "/crypto-meme/static/js/main.db7d7036.js",
+    "static/js/787.a9147c56.chunk.js": "/crypto-meme/static/js/787.a9147c56.chunk.js",
+    "index.html": "/crypto-meme/index.html",
+    "main.4147d96a.css.map": "/crypto-meme/static/css/main.4147d96a.css.map",
+    "main.db7d7036.js.map": "/crypto-meme/static/js/main.db7d7036.js.map",
+    "787.a9147c56.chunk.js.map": "/crypto-meme/static/js/787.a9147c56.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4147d96a.css",
-    "static/js/main.84344379.js"
+    "static/js/main.db7d7036.js"
   ]
 }
