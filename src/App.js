@@ -2,21 +2,17 @@ import './App.css'
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import FileUploadPage from './Upload'
-import Home from "./Home"
-
-
-function Detail() {
-  return <>hi</>
-}
+import Detail from './Detail'
+import Home from './Home'
 
 function App() {
   return (
     <div className="App">
-        <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/upload" element={<FileUploadPage />} />
-            <Route path="/meme/*" element={<Detail />} />
-        </Routes>
+      <Routes>
+        <Route path="/upload" element={<FileUploadPage />} />
+        <Route path="/meme/:id" element={<Detail />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
   )
 }

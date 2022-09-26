@@ -8,24 +8,7 @@ import {
 } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-
-function Image(props) {
-  return (
-    <div className="meme">
-      <img src={props.url} alt="crypto-meme">
-        {props.value}
-      </img>
-      <div className="vote">
-        <AiFillCaretUp />
-        upvote
-        <AiFillCaretDown />
-        downvote
-        <AiFillMessage />
-        comment
-      </div>
-    </div>
-  )
-}
+import Image from './Image.js'
 
 function Upload() {
   return (
@@ -86,7 +69,7 @@ function Home() {
       {TagBar()}
       <div>
         {data &&
-          data.map(({ id, url }) => <div key={id}>{Image({ url })}</div>)}
+          data.map(({ id, url }) => <div key={id}>{Image({ id, url })}</div>)}
       </div>
     </div>
   )
