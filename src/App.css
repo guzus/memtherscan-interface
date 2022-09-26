@@ -74,6 +74,11 @@ img {
   color: #61dafb;
 }
 
+.meme {
+  max-width: 600px;
+  margin: auto;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
