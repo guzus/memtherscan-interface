@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Image from './Image.js'
+import { Link } from 'react-router-dom'
 
 function Detail() {
   const { id } = useParams()
@@ -34,6 +35,9 @@ function Detail() {
   console.log(id)
   return (
     <>
+      <Link className="title" to="/">
+        Memtherscan
+      </Link>
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
       <div>{Image({ url })}</div>
