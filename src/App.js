@@ -1,11 +1,19 @@
-import './App.css'
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import FileUploadPage from './Upload'
-import Detail from './Detail'
-import Home from './Home'
+import "./App.css";
+import React, { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import FileUploadPage from "./Upload";
+import Detail from "./Detail";
+import Home from "./Home";
+
+import ReactGA from "react-ga";
+const TRACKING_ID = "G-76SSRFV483"; // OUR_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
 
 function App() {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   return (
     <div className="App">
       <Routes>
@@ -14,7 +22,7 @@ function App() {
         <Route path="/" element={<Home />} />
       </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
