@@ -4,10 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import FileUploadPage from "./Upload";
 import Detail from "./Detail";
 import Home from "./Home";
-
 import ReactGA from "react-ga";
-const TRACKING_ID = "G-76SSRFV483"; // OUR_TRACKING_ID
-ReactGA.initialize(TRACKING_ID);
 
 function App() {
   useEffect(() => {
