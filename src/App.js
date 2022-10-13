@@ -4,7 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import FileUploadPage from "./Upload";
 import Detail from "./Detail";
 import Home from "./Home";
-import ReactGA from "react-ga";
+import Footer from "./Footer";
+import ReactGA from "react-ga4";
 
 function App() {
   useEffect(() => {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/meme/:id" element={<Detail />} />
         <Route path="/" element={<Home />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

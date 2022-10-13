@@ -1,21 +1,15 @@
-import './App.css'
-import {
-  AiFillCaretDown,
-  AiFillCaretUp,
-  AiFillFormatPainter,
-  AiFillMessage,
-  AiOutlineRise,
-} from 'react-icons/ai'
-import { Link } from 'react-router-dom'
-import React, { useEffect, useState } from 'react'
-import Image from './Image.js'
+import "./App.css";
+import { AiFillFormatPainter, AiOutlineRise } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import Image from "./Image.js";
 
 function Upload() {
   return (
     <Link to="/upload" className="tag upload">
       upload!
     </Link>
-  )
+  );
 }
 
 function TagBar() {
@@ -25,41 +19,41 @@ function TagBar() {
         <AiOutlineRise /> trending
       </button>
       <button className="tag">
-        <AiFillFormatPainter /> ethereum merge
+        <AiFillFormatPainter /> ethereum
       </button>
       {Upload()}
     </div>
-  )
+  );
 }
 
 // TODO: tag
 function Home() {
-  const [data, setData] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('https://crypto-meme-server.herokuapp.com/image')
+    fetch("https://crypto-meme-server.herokuapp.com/image")
       .then((response) => {
         if (!response.ok) {
           throw new Error(
-            `This is an HTTP error: The status is ${response.status}`,
-          )
+            `This is an HTTP error: The status is ${response.status}`
+          );
         }
-        return response.json()
+        return response.json();
       })
       .then((actualData) => {
-        setData(actualData)
-        setError(null)
+        setData(actualData);
+        setError(null);
       })
       .catch((err) => {
-        setError(err.message)
-        setData(null)
+        setError(err.message);
+        setData(null);
       })
       .finally(() => {
-        setLoading(false)
-      })
-  }, [])
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div className="App">
@@ -72,7 +66,7 @@ function Home() {
           data.map(({ id, url }) => <div key={id}>{Image({ id, url })}</div>)}
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

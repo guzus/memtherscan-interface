@@ -1,10 +1,10 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: #ffffff;
 }
 
 .title {
-  color: azure;
+  color: rgb(0, 0, 0);
   /* font-size: 7vw; */
 }
 
@@ -35,7 +35,7 @@ p {
   opacity: 100%;
   font-size: 20px;
   margin: 1vw;
-  border: 0.1vw solid white;
+  border: 0.1vw solid black;
   border-radius: 5px;
 }
 
@@ -45,7 +45,7 @@ img {
 }
 
 .vote {
-  color: aliceblue;
+  color: black;
   margin-bottom: 5%;
 }
 
@@ -61,7 +61,7 @@ img {
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
