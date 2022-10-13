@@ -1,6 +1,6 @@
 import React from "react";
 import { AiFillTwitterCircle } from "react-icons/ai";
-export default function App() {
+export default function Footer() {
   return (
     <div className="bg-dark text-center text-white">
       <div style={{ backgroundColor: "rgba(0, 0, 0, 0)", color: "white" }}>
