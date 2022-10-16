@@ -1,6 +1,28 @@
 import "./App.css";
 import React, { useState } from "react";
 import Header from "./Header";
+import styled from 'styled-components';
+
+const UploadWrapper = styled.section`
+  padding: 10px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: solid 0.1em;
+  border-radius: 10px;
+  border-color: black;
+`;
+
+const SubmitWrapper = styled.section`
+  padding: 10px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
 
 function FileUploadPage() {
   const [selectedFile, setSelectedFile] = useState();
@@ -35,24 +57,29 @@ function FileUploadPage() {
     <>
       <Header></Header>
       <div>
-        <input type="file" name="file" onChange={changeHandler} />
-        {isFilePicked ? (
+        <UploadWrapper>
+          <input type="file" name="file" onChange={changeHandler} />
+          {isFilePicked ? (
+            <div>
+              <p>Filename: {selectedFile.name}</p>
+              {/* <p>Filetype: {selectedFile.type}</p> */}
+              <p>Size in bytes: {selectedFile.size}</p>
+              {/* <p>
+                lastModifiedDate:{" "}
+                {selectedFile.lastModifiedDate.toLocaleDateString()}
+              </p> */}
+            </div>
+          ) : (
+            <p></p>
+          )}
+        </UploadWrapper>
+        <SubmitWrapper>
           <div>
-            <p>Filename: {selectedFile.name}</p>
-            {/* <p>Filetype: {selectedFile.type}</p> */}
-            <p>Size in bytes: {selectedFile.size}</p>
-            {/* <p>
-              lastModifiedDate:{" "}
-              {selectedFile.lastModifiedDate.toLocaleDateString()}
-            </p> */}
+            <button onClick={handleSubmission}>Submit</button>
           </div>
-        ) : (
-          <p></p>
-        )}
-        <div>
-          <button onClick={handleSubmission}>Submit</button>
-        </div>
-        <div>{isUploadSuccessful ? <div>success</div> : <></>}</div>
+          <div>{isUploadSuccessful ? <div>success</div> : <></>}</div>
+        </SubmitWrapper>
+        
       </div>
     </>
   );
