@@ -12,6 +12,14 @@ function Upload() {
   );
 }
 
+function Mission() {
+  return (
+    <Link to="/mission" className="tag">
+      Our mission
+    </Link>
+  );
+}
+
 function TagBar() {
   return (
     <div className="tags">
@@ -22,6 +30,7 @@ function TagBar() {
         <AiFillFormatPainter /> ethereum
       </button>
       {Upload()}
+      {Mission()}
     </div>
   );
 }

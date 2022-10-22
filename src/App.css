@@ -11,16 +11,7 @@
 /* upload */
 .upload {
   background-color: gray;
-  color: white;
   margin: 5%;
-}
-
-input {
-  color: aliceblue;
-}
-
-p {
-  color: aliceblue;
 }
 
 /* tag */

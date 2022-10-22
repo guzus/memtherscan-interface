@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import FileUploadPage from "./Upload";
+import MissionPage from "./Mission";
 import Detail from "./Detail";
 import Home from "./Home";
 import Footer from "./Footer";
@@ -16,6 +17,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/upload" element={<FileUploadPage />} />
+        <Route path="/mission" element={<MissionPage />} />
         <Route path="/meme/:id" element={<Detail />} />
         <Route path="/" element={<Home />} />
       </Routes>

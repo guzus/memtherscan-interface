@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import Header from "./Header";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const UploadWrapper = styled.section`
   padding: 10px;
@@ -79,7 +79,6 @@ function FileUploadPage() {
           </div>
           <div>{isUploadSuccessful ? <div>success</div> : <></>}</div>
         </SubmitWrapper>
-        
       </div>
     </>
   );
