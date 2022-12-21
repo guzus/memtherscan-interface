@@ -1,7 +1,7 @@
-import "./App.css";
-import React, { useState } from "react";
-import Header from "./Header";
-import styled from "styled-components";
+import './App.css'
+import React, { useState } from 'react'
+import Header from './Header'
+import styled from 'styled-components'
 
 const UploadWrapper = styled.section`
   padding: 10px;
@@ -13,7 +13,7 @@ const UploadWrapper = styled.section`
   border: solid 0.1em;
   border-radius: 10px;
   border-color: black;
-`;
+`
 
 const SubmitWrapper = styled.section`
   padding: 10px;
@@ -22,36 +22,37 @@ const SubmitWrapper = styled.section`
   margin-right: auto;
   margin-top: 10px;
   margin-bottom: 10px;
-`;
+`
 
 function FileUploadPage() {
-  const [selectedFile, setSelectedFile] = useState();
-  const [isFilePicked, setIsFilePicked] = useState(false);
-  const [isUploadSuccessful, setIsUploadSuccessful] = useState(false);
+  const [selectedFile, setSelectedFile] = useState()
+  const [isFilePicked, setIsFilePicked] = useState(false)
+  const [isUploadSuccessful, setIsUploadSuccessful] = useState(false)
 
   const changeHandler = (event) => {
-    setSelectedFile(event.target.files[0]);
-    setIsFilePicked(true);
-  };
+    setSelectedFile(event.target.files[0])
+    setIsFilePicked(true)
+  }
 
   const handleSubmission = () => {
-    const formData = new FormData();
+    const formData = new FormData()
 
-    formData.append("file", selectedFile);
+    formData.append('file', selectedFile)
 
-    fetch("https://crypto-meme-server.herokuapp.com/upload", {
-      method: "POST",
+    const BASE_URL = 'https://crypto-meme-server-k5sr2csqpa-ue.a.run.app'
+    fetch(BASE_URL + '/upload', {
+      method: 'POST',
       body: formData,
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log("Success:", result);
-        setIsUploadSuccessful(true);
+        console.log('Success:', result)
+        setIsUploadSuccessful(true)
       })
       .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
+        console.error('Error:', error)
+      })
+  }
 
   return (
     <>
@@ -81,7 +82,7 @@ function FileUploadPage() {
         </SubmitWrapper>
       </div>
     </>
-  );
+  )
 }
 
-export default FileUploadPage;
+export default FileUploadPage
