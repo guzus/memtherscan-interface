@@ -43,7 +43,7 @@ function Home() {
 
   useEffect(() => {
     const BASE_URL = 'https://crypto-meme-server-k5sr2csqpa-ue.a.run.app'
-    fetch(BASE_URL + '/image')
+    fetch(BASE_URL + '/image?shuffle=true')
       .then((response) => {
         if (!response.ok) {
           throw new Error(
