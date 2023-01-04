@@ -1,5 +1,5 @@
 import React from "react";
-import { AiFillTwitterCircle } from "react-icons/ai";
+import { AiOutlineGlobal, AiFillTwitterCircle } from "react-icons/ai";
 export default function Footer() {
   return (
     <div className="bg-dark text-center text-white">
@@ -9,6 +9,12 @@ export default function Footer() {
             style={{ fontSize: "40px", color: "pink" }}
           ></AiFillTwitterCircle>
         </a>
+        <a href="https://discord.gg/zJHcXDQU">
+          <AiOutlineGlobal
+            style={{ fontSize: "40px", color: "pink" }}
+          ></AiOutlineGlobal>
+        </a>
+
         <p style={{ fontSize: "15px", color: "gray" }}>© 2022 Memtherscan</p>
       </div>
     </div>
