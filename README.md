@@ -2,6 +2,6 @@
 
 - commands
 
-```npm run start```
+`npm run start`
 
-```npm run deploy```
+`npm run deploy`

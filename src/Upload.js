@@ -2,6 +2,7 @@ import './App.css'
 import React, { useState } from 'react'
 import Header from './Header'
 import styled from 'styled-components'
+import Modal from './Components/Modal'
 
 const UploadWrapper = styled.section`
   padding: 10px;
@@ -56,6 +57,22 @@ function FileUploadPage() {
 
   return (
     <>
+      {isUploadSuccessful && (
+        <Modal close={() => setIsUploadSuccessful(!isUploadSuccessful)}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              padding: '8px',
+            }}
+          >
+            <div style={{ width: '100%', color: 'white' }}>
+              Submission Complete!
+            </div>
+          </div>
+        </Modal>
+      )}
       <Header></Header>
       <div>
         <UploadWrapper>

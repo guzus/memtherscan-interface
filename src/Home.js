@@ -40,9 +40,9 @@ function Home() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const BASE_URL = 'https://crypto-meme-server-k5sr2csqpa-ue.a.run.app'
 
   useEffect(() => {
-    const BASE_URL = 'https://crypto-meme-server-k5sr2csqpa-ue.a.run.app'
     fetch(BASE_URL + '/image?shuffle=true')
       .then((response) => {
         if (!response.ok) {
