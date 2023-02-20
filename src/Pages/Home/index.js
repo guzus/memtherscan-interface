@@ -1,8 +1,8 @@
-import './App.css'
+import './../../App.css'
 import { AiFillFormatPainter, AiOutlineRise } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-import Image from './Image.js'
+import Image from '../../Components/Image/index.js'
 
 function Upload() {
   return (

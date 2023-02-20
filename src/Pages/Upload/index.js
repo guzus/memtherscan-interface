@@ -1,8 +1,8 @@
-import './App.css'
+import './../../App.css'
 import React, { useState } from 'react'
-import Header from './Header'
+import Header from '../../Components/Header'
 import styled from 'styled-components'
-import Modal from './Components/Modal'
+import Modal from '../../Components/Modal'
 
 const UploadWrapper = styled.section`
   padding: 10px;

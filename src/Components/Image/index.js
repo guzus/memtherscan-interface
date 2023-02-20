@@ -1,4 +1,4 @@
-import './App.css'
+import './../../App.css'
 import { AiFillCaretDown, AiFillCaretUp, AiFillMessage } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import React from 'react'

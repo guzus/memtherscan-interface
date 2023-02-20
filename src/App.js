@@ -1,17 +1,17 @@
-import "./App.css";
-import React, { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
-import FileUploadPage from "./Upload";
-import MissionPage from "./Mission";
-import Detail from "./Detail";
-import Home from "./Home";
-import Footer from "./Footer";
-import ReactGA from "react-ga4";
+import './App.css'
+import React, { useEffect } from 'react'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import FileUploadPage from './Pages/Upload'
+import MissionPage from './Pages/Mission'
+import Detail from './Pages/Detail'
+import Home from './Pages/Home'
+import Footer from './Components/Footer'
+import ReactGA from 'react-ga4'
 
 function App() {
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
+    ReactGA.pageview(window.location.pathname + window.location.search)
+  }, [])
 
   return (
     <div className="App">
@@ -23,7 +23,7 @@ function App() {
       </Routes>
       <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
