@@ -1,6 +1,6 @@
 import './App.css'
 import React, { useEffect } from 'react'
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import FileUploadPage from './Pages/Upload'
 import MissionPage from './Pages/Mission'
 import Detail from './Pages/Detail'
