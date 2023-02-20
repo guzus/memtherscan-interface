@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Image from '../../Components/Image/index.js'
 import Header from '../../Components/Header'
 
@@ -9,6 +9,7 @@ function Detail() {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
   const BASE_URL = 'https://crypto-meme-server-k5sr2csqpa-ue.a.run.app'
+  const nav = useNavigate()
 
   useEffect(() => {
     fetch(BASE_URL + `/image/${id}`)
@@ -38,7 +39,7 @@ function Detail() {
       <Header></Header>
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
-      <div>{Image({ url })}</div>
+      <div>{Image({ url }, nav)}</div>
     </>
   )
 }
