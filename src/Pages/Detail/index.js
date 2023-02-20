@@ -39,7 +39,7 @@ function Detail() {
       <Header></Header>
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
-      <div>{Image({ url }, nav)}</div>
+      <div>{Image({ url, id }, nav)}</div>
     </>
   )
 }
