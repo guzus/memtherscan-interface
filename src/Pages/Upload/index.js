@@ -1,8 +1,8 @@
-import './App.css'
+import './../../App.css'
 import React, { useState } from 'react'
-import Header from './Header'
+import Header from '../../Components/Header'
 import styled from 'styled-components'
-import Modal from './Components/Modal'
+import Modal from '../../Components/Modal'
 
 const UploadWrapper = styled.section`
   padding: 10px;
@@ -29,6 +29,7 @@ function FileUploadPage() {
   const [selectedFile, setSelectedFile] = useState()
   const [isFilePicked, setIsFilePicked] = useState(false)
   const [isUploadSuccessful, setIsUploadSuccessful] = useState(false)
+  const [isUploadSubmitted, setIsUploadSubmitted] = useState(false)
 
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0])
@@ -36,6 +37,7 @@ function FileUploadPage() {
   }
 
   const handleSubmission = () => {
+    setIsUploadSubmitted(true)
     const formData = new FormData()
 
     formData.append('file', selectedFile)
@@ -69,6 +71,9 @@ function FileUploadPage() {
           >
             <div style={{ width: '100%', color: 'white' }}>
               Submission Complete!
+              {/* <div>Check out the meme you just uploaded
+                <a href='/'>here</a>
+              </div> */}
             </div>
           </div>
         </Modal>
@@ -95,7 +100,15 @@ function FileUploadPage() {
           <div>
             <button onClick={handleSubmission}>Submit</button>
           </div>
-          <div>{isUploadSuccessful ? <div>success</div> : <></>}</div>
+          <div>
+            {isUploadSuccessful ? (
+              <div>Upload Complete!</div>
+            ) : isUploadSubmitted ? (
+              <div>Uploading...</div>
+            ) : (
+              <></>
+            )}
+          </div>
         </SubmitWrapper>
       </div>
     </>

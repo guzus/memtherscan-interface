@@ -1,6 +1,6 @@
-import './App.css'
+import './../../App.css'
 import React from 'react'
-import Header from './Header'
+import Header from '../../Components/Header'
 import styled from 'styled-components'
 
 const TextWrapper = styled.section`

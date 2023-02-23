@@ -1,6 +1,5 @@
-import './App.css'
+import './../../App.css'
 import { AiFillCaretDown, AiFillCaretUp, AiFillMessage } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
 import React from 'react'
 import styled from 'styled-components'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
@@ -16,7 +15,7 @@ const UtilBox = styled.section`
   justify-content: center;
 `
 
-function Image(props) {
+function Image(props, nav) {
   return (
     <div className="meme">
       <LazyLoadImage src={props.url} alt="crypto-meme">
@@ -36,9 +35,9 @@ function Image(props) {
           comment
         </Wrapper>
         <Wrapper>
-          <Link to={`/meme/${props.id}`} className="vote">
-            look
-          </Link>
+          <div onClick={() => nav(`/meme/${props.id}`)} className="vote">
+            🔎look
+          </div>
         </Wrapper>
       </UtilBox>
     </div>

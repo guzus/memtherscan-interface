@@ -1,22 +1,24 @@
-import './App.css'
+import './../../App.css'
 import { AiFillFormatPainter, AiOutlineRise } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-import Image from './Image.js'
+import Image from '../../Components/Image/index.js'
 
 function Upload() {
+  const nav = useNavigate()
   return (
-    <Link to="/upload" className="tag upload">
+    <div onClick={() => nav('/upload')} className="tag upload">
       upload!
-    </Link>
+    </div>
   )
 }
 
 function Mission() {
+  const nav = useNavigate()
   return (
-    <Link to="/mission" className="tag">
+    <div onClick={() => nav('/mission')} className="tag">
       Our mission
-    </Link>
+    </div>
   )
 }
 
@@ -42,6 +44,7 @@ function Home() {
   const [error, setError] = useState(null)
   const BASE_URL = 'https://crypto-meme-server-k5sr2csqpa-ue.a.run.app'
 
+  const nav = useNavigate()
   useEffect(() => {
     fetch(BASE_URL + '/image?shuffle=true')
       .then((response) => {
@@ -73,7 +76,9 @@ function Home() {
       {TagBar()}
       <div>
         {data &&
-          data.map(({ id, url }) => <div key={id}>{Image({ id, url })}</div>)}
+          data.map(({ id, url }) => (
+            <div key={id}>{Image({ id, url }, nav)}</div>
+          ))}
       </div>
     </div>
   )
