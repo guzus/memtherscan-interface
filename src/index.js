@@ -11,9 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 window.addEventListener('load', () => {
   root.render(
     <React.StrictMode>
-      <BrowserRouter>
         <App />
-      </BrowserRouter>
     </React.StrictMode>,
   )
 })
