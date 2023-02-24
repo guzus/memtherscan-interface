@@ -18,6 +18,7 @@ function MissionPage() {
       <Header></Header>
       <div>
         <h1>Our mission: Illuminating the (not-so-dark) crypto meme forest</h1>
+        <img className="missionImage" src="/image/keep-calm-yes-we-scan-5.png"/>
         <TextWrapper>
           <h2>Joy & Chill is one of the greatest Crypto's utility.</h2>
           We value the good vibe of crypto communities, and are working hard to
