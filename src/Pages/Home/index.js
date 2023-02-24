@@ -74,6 +74,14 @@ function Home() {
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
       {TagBar()}
+      <div className="sort">
+          <button className="sortedBylatest">
+            latest
+          </button>
+          <button className="sortedByTrending">
+            trending
+          </button>
+        </div>
       <div>
         {data &&
           data.map(({ id, url }) => (

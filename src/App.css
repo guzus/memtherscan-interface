@@ -6,6 +6,8 @@
 .title {
   color: rgb(0, 0, 0);
   /* font-size: 7vw; */
+  font-size: 70px;
+  margin-bottom: 4%;
 }
 
 /* upload */
@@ -18,7 +20,8 @@
 .tags {
   display: flex;
   flex-direction: row;
-  padding-bottom: 10%;
+  justify-content: space-evenly;
+  padding-bottom: 2.5%;
 }
 
 .tag {
@@ -28,6 +31,11 @@
   margin: 1vw;
   border: 0.1vw solid black;
   border-radius: 5px;
+}
+
+.sort{
+  padding-left: 60%;
+  margin-bottom: 1%;
 }
 
 /* img */
@@ -71,4 +79,8 @@ img {
   to {
     transform: rotate(360deg);
   }
+}
+
+.missionImage{
+  width: 70%;
 }
