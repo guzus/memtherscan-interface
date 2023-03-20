@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import Header from '../../Components/Header'
 import styled from 'styled-components'
 import Modal from '../../Components/Modal'
+import console from "console-browserify"
+import Navbar from '../../Components/Navbar'
+import { Upload, Button } from '@web3uikit/core'
 
 const UploadWrapper = styled.section`
   padding: 10px;
@@ -79,9 +82,10 @@ function FileUploadPage() {
         </Modal>
       )}
       <Header></Header>
+      <Navbar/>
       <div>
         <UploadWrapper>
-          <input type="file" name="file" onChange={changeHandler} />
+          <Upload type="file" name="file" onChange={changeHandler} />
           {isFilePicked ? (
             <div>
               <p>Filename: {selectedFile.name}</p>
@@ -97,8 +101,11 @@ function FileUploadPage() {
           )}
         </UploadWrapper>
         <SubmitWrapper>
-          <div>
-            <button onClick={handleSubmission}>Submit</button>
+          <div style={{
+            display: "flex",
+            justifyContent: "center"
+          }}>
+            <Button onClick={handleSubmission} text="Submit"/>
           </div>
           <div>
             {isUploadSuccessful ? (

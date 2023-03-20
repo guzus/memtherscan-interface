@@ -2,6 +2,7 @@ import './../../App.css'
 import React from 'react'
 import Header from '../../Components/Header'
 import styled from 'styled-components'
+import Navbar from '../../Components/Navbar'
 
 const TextWrapper = styled.section`
   padding: 10px;
@@ -17,13 +18,16 @@ function MissionPage() {
     <>
       <Header></Header>
       <div>
+        <Navbar/>
         <h1>Our mission: Illuminating the (not-so-dark) crypto meme forest</h1>
         <TextWrapper>
           <h2>Joy & Chill is one of the greatest Crypto's utility.</h2>
           We value the good vibe of crypto communities, and are working hard to
           make it to the next level.
         </TextWrapper>
-        <TextWrapper>
+        <TextWrapper style={{
+          textAlign: "center"
+        }}>
           <h2>Roadmap</h2>
           <ul>
             <div>- View by Tag Feature</div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Image from '../../Components/Image/index.js'
 import Header from '../../Components/Header'
+import Navbar from '../../Components/Navbar.js'
 
 function Detail() {
   const { id } = useParams()
@@ -39,6 +40,7 @@ function Detail() {
       <Header></Header>
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
+      <Navbar />
       <div>{Image({ url, id }, nav)}</div>
     </>
   )
