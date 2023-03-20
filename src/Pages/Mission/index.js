@@ -25,7 +25,9 @@ function MissionPage() {
           We value the good vibe of crypto communities, and are working hard to
           make it to the next level.
         </TextWrapper>
-        <TextWrapper>
+        <TextWrapper style={{
+          textAlign: "center"
+        }}>
           <h2>Roadmap</h2>
           <ul>
             <div>- View by Tag Feature</div>
