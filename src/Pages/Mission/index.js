@@ -2,6 +2,7 @@ import './../../App.css'
 import React from 'react'
 import Header from '../../Components/Header'
 import styled from 'styled-components'
+import Navbar from '../../Components/Navbar'
 
 const TextWrapper = styled.section`
   padding: 10px;
@@ -17,6 +18,7 @@ function MissionPage() {
     <>
       <Header></Header>
       <div>
+        <Navbar/>
         <h1>Our mission: Illuminating the (not-so-dark) crypto meme forest</h1>
         <TextWrapper>
           <h2>Joy & Chill is one of the greatest Crypto's utility.</h2>

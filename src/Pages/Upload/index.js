@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import Header from '../../Components/Header'
 import styled from 'styled-components'
 import Modal from '../../Components/Modal'
+import console from "console-browserify"
+import Navbar from '../../Components/Navbar'
 
 const UploadWrapper = styled.section`
   padding: 10px;
@@ -79,6 +81,7 @@ function FileUploadPage() {
         </Modal>
       )}
       <Header></Header>
+      <Navbar/>
       <div>
         <UploadWrapper>
           <input type="file" name="file" onChange={changeHandler} />

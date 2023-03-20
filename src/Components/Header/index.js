@@ -12,9 +12,9 @@ export default function Header() {
   const nav = useNavigate()
   return (
     <HeaderSection>
-      <div className="title" onClick={() => nav('/')}>
+      <h1 className="title" onClick={() => nav('/')}>
         Memtherscan
-      </div>
+      </h1>
     </HeaderSection>
   )
 }
