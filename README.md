@@ -4,7 +4,7 @@
 
 > Crypto memes in the palm of your hand
 
-<img src="https://github.com/guzus/memtherscan/assets/50664161/71775350-9bc0-48b4-bdea-c62461d91049" width=400 />
+<img src="https://github.com/guzus/memtherscan/assets/50664161/535a0983-09ee-467b-bbd3-4db1f9173a65" width=400 />
 
 ## Development
 
