@@ -1,6 +1,6 @@
 import './../../App.css'
 import { AiFillFormatPainter, AiOutlineRise } from 'react-icons/ai'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import Image from '../../Components/Image/index.js'
 
@@ -22,13 +22,13 @@ function Mission() {
   )
 }
 
-function TagBar() {
+function TagBar(setSearchParams) {
   return (
     <div className="tags">
-      <button className="tag">
+      <button className="tag" onClick={() => setSearchParams('?tag=trending')}>
         <AiOutlineRise /> trending
       </button>
-      <button className="tag">
+      <button className="tag" onClick={() => setSearchParams('?tag=ethereum')}>
         <AiFillFormatPainter /> ethereum
       </button>
       {Upload()}
@@ -37,16 +37,23 @@ function TagBar() {
   )
 }
 
-// TODO: tag
 function Home() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [searchParams, setSearchParams] = useSearchParams()
   const BASE_URL = 'https://crypto-meme-server-k5sr2csqpa-ue.a.run.app'
 
   const nav = useNavigate()
   useEffect(() => {
-    fetch(BASE_URL + '/image?shuffle=true')
+    const tag = searchParams.get('tag');
+    let url;
+    if (tag) {
+      url = BASE_URL + `/image?shuffle=true&tag=${tag}`
+    } else {
+      url = BASE_URL + `/image?shuffle=true`
+    }
+    fetch(url)
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -66,14 +73,17 @@ function Home() {
       .finally(() => {
         setLoading(false)
       })
-  }, [])
+  }, [searchParams])
 
   return (
     <div className="App">
-      <h3 className="title">Memtherscan</h3>
+      {/* TODO: heading */}
+      <h3 className="title">
+        <Link to="/">Memtherscan</Link>
+      </h3>
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
-      {TagBar()}
+      {TagBar(setSearchParams)}
       <div>
         {data &&
           data.map(({ id, url }) => (
