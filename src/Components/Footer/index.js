@@ -9,7 +9,7 @@ export default function Footer() {
             style={{ fontSize: "40px", color: "pink" }}
           ></AiFillTwitterCircle>
         </a>
-        <a href="https://discord.gg/zJHcXDQU">
+        <a href="https://discord.gg/K4nFPbPHm">
           <AiOutlineGlobal
             style={{ fontSize: "40px", color: "pink" }}
           ></AiOutlineGlobal>
