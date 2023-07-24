@@ -15,7 +15,7 @@ export default function Footer() {
           ></AiOutlineGlobal>
         </a>
 
-        <p style={{ fontSize: "15px", color: "gray" }}>© 2022 Memtherscan</p>
+        <p style={{ fontSize: "15px", color: "gray" }}>© 2023 Memtherscan</p>
       </div>
     </div>
   );

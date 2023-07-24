@@ -1,8 +1,9 @@
 import './../../App.css'
 import { AiFillFormatPainter, AiOutlineRise } from 'react-icons/ai'
-import { Link, useNavigate, useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import Image from '../../Components/Image/index.js'
+import Header from '../../Components/Header'
 
 function Upload() {
   const nav = useNavigate()
@@ -77,10 +78,7 @@ function Home() {
 
   return (
     <div className="App">
-      {/* TODO: heading */}
-      <h3 className="title">
-        <Link to="/">Memtherscan</Link>
-      </h3>
+      <Header />
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
       {TagBar(setSearchParams)}

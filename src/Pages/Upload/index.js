@@ -95,6 +95,9 @@ function FileUploadPage() {
           ) : (
             <p></p>
           )}
+          <div>
+            videos are not supported yet, we're working on it!
+          </div>
         </UploadWrapper>
         <SubmitWrapper>
           <div>
