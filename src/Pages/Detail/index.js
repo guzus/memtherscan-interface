@@ -36,7 +36,7 @@ function Detail() {
 
   return (
     <>
-      <Header></Header>
+      {Header({ title: 'Memtherscan | Meme', description: 'The Crypto meme Aggregator', keywords: 'crypto, meme', imgsrc: url })}
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
       <div>{Image({ url, id }, nav)}</div>

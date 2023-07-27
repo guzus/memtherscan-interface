@@ -7,6 +7,7 @@ import Detail from './Pages/Detail'
 import Home from './Pages/Home'
 import Footer from './Components/Footer'
 import ReactGA from 'react-ga4'
+import { Helmet } from 'react-helmet-async';
 
 function App() {
   useEffect(() => {
@@ -15,6 +16,9 @@ function App() {
 
   return (
     <div className="App">
+      <Helmet>
+        <title>Memtherscan</title>
+      </Helmet>
       <Routes>
         <Route path="/upload" element={<FileUploadPage />} />
         <Route path="/mission" element={<MissionPage />} />
