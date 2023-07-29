@@ -1,26 +1,36 @@
-import './../../App.css'
-import { AiFillCaretDown, AiFillCaretUp, AiFillMessage } from 'react-icons/ai'
-import React from 'react'
-import styled from 'styled-components'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import "./../../App.css";
+import { AiFillCaretDown, AiFillCaretUp, AiFillMessage } from "react-icons/ai";
+import React, { useState } from "react";
+import styled from "styled-components";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Wrapper = styled.section`
   padding: 10px;
   background: papayawhip;
-`
+`;
 
 const UtilBox = styled.section`
   padding: 5px;
   display: flex;
   justify-content: center;
-`
+`;
 
-function Image(props, nav) {
+function Image(props, nav, imageLoaded, setImageLoaded) {
+  const placeholderSrc =
+    "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
+
   return (
     <div className="meme">
-      <LazyLoadImage src={props.url} alt="crypto-meme">
-        {props.value}
-      </LazyLoadImage>
+      <div>
+        {!imageLoaded && <img src={placeholderSrc} alt="memtherscan-loading" />}
+        <img
+          src={props.url}
+          alt="memtherscan-meme"
+          // style={{ display: imageLoaded ? "inline" : "none" }}
+          onLoad={() => setImageLoaded(true)}
+          loading="lazy"
+        />
+      </div>
       <UtilBox className="vote">
         <Wrapper>
           <AiFillCaretUp />
@@ -41,7 +51,7 @@ function Image(props, nav) {
         </Wrapper>
       </UtilBox>
     </div>
-  )
+  );
 }
 
-export default Image
+export default Image;
