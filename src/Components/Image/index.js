@@ -16,8 +16,7 @@ const UtilBox = styled.section`
 `;
 
 function Image(props, nav, imageLoaded, setImageLoaded) {
-  const placeholderSrc =
-    "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
+  const placeholderSrc = "favicon.ico";
 
   return (
     <div className="meme">
@@ -26,7 +25,6 @@ function Image(props, nav, imageLoaded, setImageLoaded) {
         <img
           src={props.url}
           alt="memtherscan-meme"
-          // style={{ display: imageLoaded ? "inline" : "none" }}
           onLoad={() => setImageLoaded(true)}
           loading="lazy"
         />
