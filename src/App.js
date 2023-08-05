@@ -1,18 +1,18 @@
-import './App.css'
-import React, { useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
-import FileUploadPage from './Pages/Upload'
-import MissionPage from './Pages/Mission'
-import Detail from './Pages/Detail'
-import Home from './Pages/Home'
-import Footer from './Components/Footer'
-import ReactGA from 'react-ga4'
-import { Helmet } from 'react-helmet-async';
+import "./App.css";
+import React, { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import FileUploadPage from "./Pages/Upload";
+import MissionPage from "./Pages/Mission";
+import Detail from "./Pages/Detail";
+import Home from "./Pages/Home";
+import Footer from "./Components/Footer";
+import ReactGA from "react-ga4";
+import { Helmet } from "react-helmet-async";
 
 function App() {
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search)
-  }, [])
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   return (
     <div className="App">
@@ -27,7 +27,7 @@ function App() {
       </Routes>
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,19 +1,19 @@
-import './../../App.css'
-import { AiFillCaretDown, AiFillCaretUp, AiFillMessage } from 'react-icons/ai'
-import React from 'react'
-import styled from 'styled-components'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import "./../../App.css";
+import { AiFillCaretDown, AiFillCaretUp, AiFillMessage } from "react-icons/ai";
+import React from "react";
+import styled from "styled-components";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Wrapper = styled.section`
   padding: 10px;
   background: papayawhip;
-`
+`;
 
 const UtilBox = styled.section`
   padding: 5px;
   display: flex;
   justify-content: center;
-`
+`;
 
 function Image(props, nav) {
   return (
@@ -41,7 +41,7 @@ function Image(props, nav) {
         </Wrapper>
       </UtilBox>
     </div>
-  )
+  );
 }
 
-export default Image
+export default Image;

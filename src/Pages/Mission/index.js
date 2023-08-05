@@ -1,7 +1,7 @@
-import './../../App.css'
-import React from 'react'
-import Header from '../../Components/Header'
-import styled from 'styled-components'
+import "./../../App.css";
+import React from "react";
+import Header from "../../Components/Header";
+import styled from "styled-components";
 
 const TextWrapper = styled.section`
   padding: 10px;
@@ -10,7 +10,7 @@ const TextWrapper = styled.section`
   margin-right: auto;
   margin-top: 10px;
   margin-bottom: 10px;
-`
+`;
 
 function MissionPage() {
   return (
@@ -42,7 +42,7 @@ function MissionPage() {
         </TextWrapper>
       </div>
     </>
-  )
+  );
 }
 
-export default MissionPage
+export default MissionPage;
