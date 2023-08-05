@@ -4,6 +4,7 @@ import Header from "../../Components/Header";
 import styled from "styled-components";
 import Modal from "../../Components/Modal";
 import { BASE_URL } from "../../Constants";
+import { useNavigate } from "react-router-dom";
 
 const UploadWrapper = styled.section`
   padding: 10px;
@@ -32,6 +33,7 @@ function FileUploadPage() {
   const [isUploadSuccessful, setIsUploadSuccessful] = useState(false);
   const [isUploadSubmitted, setIsUploadSubmitted] = useState(false);
 
+  const nav = useNavigate();
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
     setIsFilePicked(true);
@@ -70,10 +72,10 @@ function FileUploadPage() {
             }}
           >
             <div style={{ width: "100%", color: "white" }}>
-              Submission Complete!
-              {/* <div>Check out the meme you just uploaded
-                <a href='/'>here</a>
-              </div> */}
+              <div>Submission Complete!</div>
+              <button onClick={() => nav(`/?sortByTimestamp=desc`)}>
+                🔎Check out the meme you just uploaded
+              </button>
             </div>
           </div>
         </Modal>
@@ -95,7 +97,7 @@ function FileUploadPage() {
           ) : (
             <p></p>
           )}
-          <div>videos are not supported yet, we're working on it!</div>
+          <i>mp4 isn't supported yet, but we're working on it!</i>
         </UploadWrapper>
         <SubmitWrapper>
           <div>
@@ -103,7 +105,9 @@ function FileUploadPage() {
           </div>
           <div>
             {isUploadSuccessful ? (
-              <div>Upload Complete!</div>
+              <>
+                <div>Upload Complete!</div>
+              </>
             ) : isUploadSubmitted ? (
               <div>Uploading...</div>
             ) : (

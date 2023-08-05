@@ -1,5 +1,9 @@
 import "./../../App.css";
-import { AiFillFormatPainter, AiOutlineRise } from "react-icons/ai";
+import {
+  AiFillCompass,
+  AiFillFormatPainter,
+  AiOutlineRise,
+} from "react-icons/ai";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Image from "../../Components/Image/index.js";
@@ -33,6 +37,12 @@ function TagBar(setSearchParams) {
       <button className="tag" onClick={() => setSearchParams("?tag=ethereum")}>
         <AiFillFormatPainter /> ethereum
       </button>
+      <button
+        className="tag"
+        onClick={() => setSearchParams("?sortByTimestamp=desc")}
+      >
+        <AiFillCompass /> latest
+      </button>
       {Upload()}
       {Mission()}
     </div>
@@ -48,12 +58,17 @@ function Home() {
   const nav = useNavigate();
   useEffect(() => {
     const tag = searchParams.get("tag");
+    const sortByTimestamp = searchParams.get("sortByTimestamp");
     let url;
     if (tag) {
       url = BASE_URL + `/image?shuffle=true&tag=${tag}`;
     } else {
       url = BASE_URL + `/image?shuffle=true`;
     }
+    if (sortByTimestamp) {
+      url += `&sortByTimestamp=${sortByTimestamp}`;
+    }
+
     fetch(url)
       .then((response) => {
         if (!response.ok) {
