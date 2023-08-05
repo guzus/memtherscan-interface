@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Image from "../../Components/Image/index.js";
 import Header from "../../Components/Header";
+import { BASE_URL } from "../../Constants";
 
 function Detail() {
   const { id } = useParams();
   const [url, setUrl] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const BASE_URL = "https://crypto-meme-server-k5sr2csqpa-ue.a.run.app";
   const nav = useNavigate();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ function Detail() {
       .then((response) => {
         if (!response.ok) {
           throw new Error(
-            `This is an HTTP error: The status is ${response.status}`,
+            `This is an HTTP error: The status is ${response.status}`
           );
         }
         return response.json();

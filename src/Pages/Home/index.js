@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Image from "../../Components/Image/index.js";
 import Header from "../../Components/Header";
+import { BASE_URL } from "../../Constants";
 
 function Upload() {
   const nav = useNavigate();
@@ -43,7 +44,6 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
-  const BASE_URL = "https://crypto-meme-server-k5sr2csqpa-ue.a.run.app";
 
   const nav = useNavigate();
   useEffect(() => {
@@ -58,7 +58,7 @@ function Home() {
       .then((response) => {
         if (!response.ok) {
           throw new Error(
-            `This is an HTTP error: The status is ${response.status}`,
+            `This is an HTTP error: The status is ${response.status}`
           );
         }
         return response.json();

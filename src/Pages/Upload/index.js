@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Header from "../../Components/Header";
 import styled from "styled-components";
 import Modal from "../../Components/Modal";
+import { BASE_URL } from "../../Constants";
 
 const UploadWrapper = styled.section`
   padding: 10px;
@@ -42,7 +43,6 @@ function FileUploadPage() {
 
     formData.append("file", selectedFile);
 
-    const BASE_URL = "https://crypto-meme-server-k5sr2csqpa-ue.a.run.app";
     fetch(BASE_URL + "/upload", {
       method: "POST",
       body: formData,
