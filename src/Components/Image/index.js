@@ -17,7 +17,11 @@ const UtilBox = styled.section`
 function Image(props, nav) {
   return (
     <div className="meme">
-      <LazyLoadImage src={props.url} alt="crypto-meme">
+      <LazyLoadImage
+        src={props.url}
+        alt="crypto-meme"
+        onClick={() => nav(`/meme/${props.id}`)}
+      >
         {props.value}
       </LazyLoadImage>
       <UtilBox className="vote">
