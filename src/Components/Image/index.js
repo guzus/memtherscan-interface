@@ -1,5 +1,4 @@
 import "./../../App.css";
-import { AiFillCaretDown, AiFillCaretUp, AiFillMessage } from "react-icons/ai";
 import React from "react";
 import styled from "styled-components";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -22,7 +21,7 @@ function Image(props, nav) {
         {props.value}
       </LazyLoadImage>
       <UtilBox className="vote">
-        <Wrapper>
+        {/* <Wrapper>
           <AiFillCaretUp />
           upvote
         </Wrapper>
@@ -33,11 +32,14 @@ function Image(props, nav) {
         <Wrapper>
           <AiFillMessage />
           comment
-        </Wrapper>
+        </Wrapper> */}
         <Wrapper>
-          <div onClick={() => nav(`/meme/${props.id}`)} className="vote">
+          <button
+            onClick={() => nav(`/meme/${props.id}`)}
+            className="borderless_button"
+          >
             🔎look
-          </div>
+          </button>
         </Wrapper>
       </UtilBox>
     </div>
