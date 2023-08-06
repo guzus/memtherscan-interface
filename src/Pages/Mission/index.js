@@ -17,28 +17,31 @@ function MissionPage() {
     <>
       <Header></Header>
       <div>
-        <h1>Our mission: Illuminating the (not-so-dark) crypto meme forest</h1>
+        <h1>Our mission: Illuminating the dark crypto meme forest</h1>
         <TextWrapper>
-          <h2>Joy & Chill is one of the greatest Crypto's utility.</h2>
+          <h2>Meme is the greatest utility of Crypto.</h2>
           We value the good vibe of crypto communities, and are working hard to
           make it to the next level.
         </TextWrapper>
         <TextWrapper>
           <h2>Roadmap</h2>
           <ul>
-            <div>- View by Tag Feature</div>
             <div>- Log In with Metamask</div>
             <div>- Vote feature</div>
             <div>- Diverse web3 API integration ex) etherscan.io</div>
             <div>- Meme recommendation Feature</div>
             <div>- MemtherscanDAO</div>
-            <div>... Much more to come!</div>
+            <div>... And much more to come!</div>
           </ul>
         </TextWrapper>
         <TextWrapper>
-          <h2>Finding someone to work together!</h2>
+          <h2>FAQ</h2>
           If you want to join us or have anything to discuss, contact us through
-          email (awesomepulsar@gmail.com) or twitter (@AirdropBrokers)!
+          email (
+          <a href="mailto:awesomepulsar@gmail.com">awesomepulsar@gmail.com</a>)
+          or twitter (
+          <a href="https://twitter.com/AirdropBrokers">@AirdropBrokers</a>
+          )!
         </TextWrapper>
       </div>
     </>
