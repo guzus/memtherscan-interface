@@ -1,50 +1,66 @@
 import "./../../App.css";
-import {
-  AiFillCompass,
-  AiFillFormatPainter,
-  AiOutlineRise,
-} from "react-icons/ai";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Image from "../../Components/Image/index.js";
 import Header from "../../Components/Header";
 import { BASE_URL } from "../../Constants";
-
-function Upload() {
-  const nav = useNavigate();
-  return (
-    <div onClick={() => nav("/upload")} className="tag upload">
-      upload!
-    </div>
-  );
-}
-
-function Mission() {
-  const nav = useNavigate();
-  return (
-    <div onClick={() => nav("/mission")} className="tag">
-      Our mission
-    </div>
-  );
-}
+import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
+import "react-horizontal-scrolling-menu/dist/styles.css";
 
 function TagBar(setSearchParams) {
+  const tags = [
+    { title: "latest", searchParam: "?sortByTimestamp=desc" },
+    { title: "trending", searchParam: "?tag=trending" },
+    { title: "ethereum", searchParam: "?tag=ethereum" },
+  ];
+  const nav = useNavigate();
+
   return (
-    <div className="tags">
-      <button className="tag" onClick={() => setSearchParams("?tag=trending")}>
-        <AiOutlineRise /> trending
-      </button>
-      <button className="tag" onClick={() => setSearchParams("?tag=ethereum")}>
-        <AiFillFormatPainter /> ethereum
-      </button>
-      <button
-        className="tag"
-        onClick={() => setSearchParams("?sortByTimestamp=desc")}
-      >
-        <AiFillCompass /> latest
-      </button>
-      {Upload()}
-      {Mission()}
+    <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+      {tags.map(({ title, searchParam }) => (
+        <TagCard
+          itemId={searchParam} // NOTE: itemId is required for track items
+          title={title}
+          key={searchParam}
+          onClick={() => setSearchParams(searchParam)}
+          // selected={isItemSelected(id)}
+        />
+      ))}
+      <TagCard title={"upload"} onClick={() => nav("/upload")} />
+      <TagCard title={"about us"} onClick={() => nav("/mission")} />
+    </ScrollMenu>
+  );
+}
+
+function TagCard({ onClick, selected, title, itemId }) {
+  const visibility = React.useContext(VisibilityContext);
+
+  return (
+    <button onClick={() => onClick(visibility)} tabIndex={0} className="tag">
+      <div>{title}</div>
+      {/* <div>visible: {JSON.stringify(!!visibility.isItemVisible(itemId))}</div>
+        <div>selected: {JSON.stringify(!!selected)}</div> */}
+    </button>
+  );
+}
+
+function LeftArrow() {
+  const { isFirstItemVisible, scrollPrev } =
+    React.useContext(VisibilityContext);
+
+  return (
+    <div disabled={isFirstItemVisible} onClick={() => scrollPrev()}>
+      {/* Left */}
+    </div>
+  );
+}
+
+function RightArrow() {
+  const { isLastItemVisible, scrollNext } = React.useContext(VisibilityContext);
+
+  return (
+    <div disabled={isLastItemVisible} onClick={() => scrollNext()}>
+      {/* Right */}
     </div>
   );
 }
@@ -94,9 +110,9 @@ function Home() {
   return (
     <div className="App">
       <Header />
+      {TagBar(setSearchParams)}
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
-      {TagBar(setSearchParams)}
       <div>
         {data &&
           data.map(({ id, url }) => (
