@@ -1,6 +1,5 @@
 import { useSearchParams, usePathname } from "next/navigation";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import React, { useEffect, useState, useCallback } from "react";
 import Image from "../components/image/index.js";
 import Header from "../components/header";
@@ -21,20 +20,17 @@ function TagBar(createQueryString) {
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
       {tags.map(({ title, key, value }) => (
         <button
+          key={title}
           onClick={() => {
             router.push(pathname + "?" + createQueryString(key, value));
           }}
-          // itemId={searchParam} // NOTE: itemId is required for track items
-          // title={title}
-          // key={searchParam}
-          // selected={isItemSelected(id)}
         >
           {title}
         </button>
       ))}
       {/*<TagCard title={"upload"} key={"upload"} />*/}
-      <Link href="/upload"> upload </Link>
-      <Link href="/mission"> about us </Link>
+      <button onClick={() => router.push("/upload")}>upload</button>
+      <button onClick={() => router.push("/mission")}>about us</button>
     </ScrollMenu>
   );
 }

@@ -3,6 +3,7 @@ import Header from "../../components/header";
 import styled from "styled-components";
 import Modal from "../../components/modal";
 import { BASE_URL } from "../../constants";
+import { useRouter } from "next/navigation";
 
 const UploadWrapper = styled.section`
   padding: 10px;
@@ -56,6 +57,8 @@ function FileUploadPage() {
       });
   };
 
+  const router = useRouter();
+
   return (
     <>
       {isUploadSuccessful && (
@@ -70,7 +73,7 @@ function FileUploadPage() {
           >
             <div style={{ width: "100%", color: "white" }}>
               <div>Submission Complete!</div>
-              <button onClick={() => nav(`/?sortByTimestamp=desc`)}>
+              <button onClick={() => router.push("/?sortByTimestamp=desc")}>
                 🔎Check out the meme you just uploaded
               </button>
             </div>
