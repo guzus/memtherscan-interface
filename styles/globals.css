@@ -1,0 +1,122 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+}
+
+.App {
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.title {
+  color: rgb(0, 0, 0);
+  /* font-size: 7vw; */
+}
+
+/* upload */
+.upload {
+  background-color: gray;
+  margin: 5%;
+}
+
+/* tag */
+.tags {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10%;
+}
+
+.tag {
+  color: black;
+  opacity: 100%;
+  font-size: 20px;
+  margin: 1vw;
+  border: 0.1vw solid black;
+  border-radius: 5px;
+}
+
+/* img */
+img {
+  width: 90%;
+}
+
+.vote {
+  color: black;
+  margin-bottom: 5%;
+}
+
+.borderless_button {
+  opacity: 100%;
+  font-size: 20px;
+  border: 0;
+  background-color: transparent;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.meme {
+  max-width: 600px;
+  margin: auto;
+}

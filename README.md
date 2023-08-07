@@ -11,10 +11,10 @@
 Run on localhost
 
 ```
-npm run start
+npm run dev
 ```
 
-Deploy
+Deploy (using Vercel)
 
 ```
 npm run deploy
