@@ -20,6 +20,7 @@ function TagBar(createQueryString) {
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
       {tags.map(({ title, key, value }) => (
         <button
+          className="tag"
           key={title}
           onClick={() => {
             router.push(pathname + "?" + createQueryString(key, value));
@@ -29,8 +30,12 @@ function TagBar(createQueryString) {
         </button>
       ))}
       {/*<TagCard title={"upload"} key={"upload"} />*/}
-      <button onClick={() => router.push("/upload")}>upload</button>
-      <button onClick={() => router.push("/mission")}>about us</button>
+      <button className="tag" onClick={() => router.push("/upload")}>
+        upload
+      </button>
+      <button className="tag" onClick={() => router.push("/mission")}>
+        about us
+      </button>
     </ScrollMenu>
   );
 }
@@ -124,6 +129,7 @@ function Home() {
   return (
     <div className="App">
       <Header />
+      <div style={{ borderStyle: "dashed", borderRadius: 5 }}></div>
       {TagBar(createQueryString)}
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}

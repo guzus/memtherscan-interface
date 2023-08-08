@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 
 function Detail({ params }) {
   const router = useRouter();
-  console.log("query", router.query);
   const { id } = router.query;
   const [url, setUrl] = useState(null);
   const [error, setError] = useState(null);

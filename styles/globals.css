@@ -76,7 +76,7 @@ button {
   opacity: 100%;
   font-size: 20px;
   margin: 1vw;
-  border: 0.1vw solid black;
+  border: 0.1vw solid transparent;
   border-radius: 5px;
 }
 
