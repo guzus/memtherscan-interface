@@ -30,7 +30,7 @@ export default function Header(props) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={props.title} />
         <meta name="twitter:description" content={props.description} />
-        <meta name="twitter:image:src" content={props.imgsrc} />
+        <meta name="twitter:image" content={props.imgsrc} />
 
         <link rel="canonical" href={props.url} />
       </Head>
