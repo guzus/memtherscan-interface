@@ -8,17 +8,15 @@
 
 ## Development
 
-Run on localhost
+- Run on localhost
 
 ```
 npm run dev
 ```
 
-Deploy (using Vercel)
+- Deploy
 
-```
-npm run deploy
-```
+`main` branch is automatically deployed by Vercel.
 
 ## Infrastructure
 
