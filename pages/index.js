@@ -6,14 +6,15 @@ import Header from "../components/header";
 import { BASE_URL } from "../constants";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import "react-horizontal-scrolling-menu/dist/styles.css";
+import Footer from "../components/footer/index.js";
 
 function TagBar(createQueryString) {
   const router = useRouter();
   const pathname = usePathname();
   const tags = [
-    { title: "latest", key: "sortByTimestamp", value: "desc" },
-    { title: "trending", key: "tag", value: "trending" },
-    { title: "ethereum", key: "tag", value: "ethereum" },
+    { title: "# latest", key: "sortByTimestamp", value: "desc" },
+    { title: "# trending", key: "tag", value: "trending" },
+    { title: "# ethereum", key: "tag", value: "ethereum" },
   ];
 
   return (
@@ -137,6 +138,7 @@ function Home() {
         {data &&
           data.map(({ id, url }) => <div key={id}>{Image({ id, url })}</div>)}
       </div>
+      <Footer />
     </div>
   );
 }

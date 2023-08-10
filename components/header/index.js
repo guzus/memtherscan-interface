@@ -5,11 +5,18 @@ import Head from "next/head";
 
 const HeaderSection = styled.section`
   padding: 20px;
-  justify-content: center;
-  cursor: grab;
+  text-align: center;
 `;
 
-export default function Header(props) {
+export default function Header(
+  props = {
+    title: "Memtherscan",
+    description: "The Centre of Crypto Memes and Culture",
+    keywords: "crypto, meme",
+    imgsrc: "https://memtherscan.xyz/favicon.ico",
+    url: "https://memtherscan.xyz",
+  },
+) {
   return (
     <>
       <Head>
@@ -30,7 +37,7 @@ export default function Header(props) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={props.title} />
         <meta name="twitter:description" content={props.description} />
-        <meta name="twitter:image:src" content={props.imgsrc} />
+        <meta name="twitter:image" content={props.imgsrc} />
 
         <link rel="canonical" href={props.url} />
       </Head>

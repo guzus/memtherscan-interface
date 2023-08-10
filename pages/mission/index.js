@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "../../components/header";
+import Footer from "../../components/footer";
 import styled from "styled-components";
+import Link from "next/link";
 
 const TextWrapper = styled.section`
   padding: 10px;
@@ -16,8 +18,9 @@ function MissionPage() {
     <>
       <Header></Header>
       <div>
-        <h1>Our mission: Illuminating the dark crypto meme forest</h1>
         <TextWrapper>
+          <h1>Our mission: Illuminating the dark forest of crypto meme</h1>
+          <br />
           <h2>Meme is the greatest utility of Crypto.</h2>
           We value the good vibe of crypto communities, and are working hard to
           make it to the next level.
@@ -37,12 +40,15 @@ function MissionPage() {
           <h2>FAQ</h2>
           If you want to join us or have anything to discuss, contact us through
           email (
-          <a href="mailto:awesomepulsar@gmail.com">awesomepulsar@gmail.com</a>)
-          or twitter (
-          <a href="https://twitter.com/AirdropBrokers">@AirdropBrokers</a>
+          <Link href="mailto:awesomepulsar@gmail.com">
+            awesomepulsar@gmail.com
+          </Link>
+          ) or twitter (
+          <Link href="https://twitter.com/AirdropBrokers">@AirdropBrokers</Link>
           )!
         </TextWrapper>
       </div>
+      <Footer />
     </>
   );
 }

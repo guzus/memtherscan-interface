@@ -1,22 +1,25 @@
 import React from "react";
-import { AiOutlineGlobal, AiFillTwitterCircle } from "react-icons/ai";
+import styled from "styled-components";
+import Link from "next/link";
+
+const FooterSection = styled.section`
+  padding: 20px;
+  text-align: center;
+`;
+
 export default function Footer() {
   return (
-    <div className="bg-dark text-center text-white">
+    <FooterSection className="bg-dark text-center text-white">
       <div style={{ backgroundColor: "rgba(0, 0, 0, 0)", color: "white" }}>
-        <a href="https://twitter.com/AirdropBrokers">
-          <AiFillTwitterCircle
-            style={{ fontSize: "40px", color: "pink" }}
-          ></AiFillTwitterCircle>
-        </a>
-        <a href="https://discord.gg/K4nFPbPHm">
-          <AiOutlineGlobal
-            style={{ fontSize: "40px", color: "pink" }}
-          ></AiOutlineGlobal>
-        </a>
+        <Link href="https://twitter.com/AirdropBrokers">
+          <div style={{ fontSize: "40px", color: "pink" }}>twitter</div>
+        </Link>
+        <Link href="https://discord.gg/K4nFPbPHm">
+          <div style={{ fontSize: "40px", color: "pink" }}>discord</div>
+        </Link>
 
         <p style={{ fontSize: "15px", color: "gray" }}>© 2023 Memtherscan</p>
       </div>
-    </div>
+    </FooterSection>
   );
 }
