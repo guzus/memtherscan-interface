@@ -14,10 +14,20 @@ const UtilBox = styled.section`
   justify-content: center;
 `;
 
+const Frame = styled.div`
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border: 10px solid pink;
+  border-radius: 10px;
+  // border-style: dashed;
+`;
+
 function Image(props) {
   const router = useRouter();
   return (
-    <div className="meme">
+    <Frame className="meme">
       <LazyLoadImage
         src={props.url}
         alt="crypto-meme"
@@ -25,8 +35,8 @@ function Image(props) {
       >
         {props.value}
       </LazyLoadImage>
-      <UtilBox className="vote">
-        {/* <Wrapper>
+      {/* <UtilBox className="vote"> */}
+      {/* <Wrapper>
           <AiFillCaretUp />
           upvote
         </Wrapper>
@@ -38,16 +48,8 @@ function Image(props) {
           <AiFillMessage />
           comment
         </Wrapper> */}
-        <Wrapper>
-          <button
-            onClick={() => router.push(`/meme/${props.id}`)}
-            className="borderless_button"
-          >
-            🔎look
-          </button>
-        </Wrapper>
-      </UtilBox>
-    </div>
+      {/* </UtilBox> */}
+    </Frame>
   );
 }
 
