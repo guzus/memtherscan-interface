@@ -23,4 +23,4 @@ npm run dev
 - **Cloudflare R2**: Image, Video Storage
 - **Firebase**: Database
 - **GCP Cloud Run**: [API Server](https://github.com/guzus/memtherscan-server) (not open-source yet)
-- **Github Actions, Github Pages**: [Frontend](https://github.com/guzus/memtherscan) Deployment
+- **Vercel**: [Frontend](https://github.com/guzus/memtherscan) Deployment
