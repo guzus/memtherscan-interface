@@ -5,8 +5,7 @@ import Head from "next/head";
 
 const HeaderSection = styled.section`
   padding: 20px;
-  justify-content: center;
-  cursor: grab;
+  text-align: center;
 `;
 
 export default function Header(
