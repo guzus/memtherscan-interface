@@ -19,7 +19,7 @@ function MissionPage() {
       <Header></Header>
       <div>
         <TextWrapper>
-          <h1>Our mission: Illuminating the dark crypto meme forest</h1>
+          <h1>Our mission: Illuminating the dark forest of crypto meme</h1>
           <br />
           <h2>Meme is the greatest utility of Crypto.</h2>
           We value the good vibe of crypto communities, and are working hard to
