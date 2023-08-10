@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "../../../components/image";
 import Header from "../../../components/header";
-import Footer from "../../components/footer";
+import Footer from "../../../components/footer";
 import { BASE_URL } from "../../../constants";
 import { useRouter } from "next/router";
 

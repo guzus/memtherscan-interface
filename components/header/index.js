@@ -15,7 +15,7 @@ export default function Header(
     keywords: "crypto, meme",
     imgsrc: "https://memtherscan.xyz/favicon.ico",
     url: "https://memtherscan.xyz",
-  }
+  },
 ) {
   return (
     <>
