@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Header from "../../components/header";
+import Footer from "../../components/footer";
 import styled from "styled-components";
 import Modal from "../../components/modal";
 import { BASE_URL } from "../../constants";
@@ -116,6 +117,7 @@ function FileUploadPage() {
           </div>
         </SubmitWrapper>
       </div>
+      <Footer />
     </>
   );
 }

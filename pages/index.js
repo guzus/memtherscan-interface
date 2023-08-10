@@ -6,6 +6,7 @@ import Header from "../components/header";
 import { BASE_URL } from "../constants";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import "react-horizontal-scrolling-menu/dist/styles.css";
+import Footer from "../components/footer/index.js";
 
 function TagBar(createQueryString) {
   const router = useRouter();
@@ -88,7 +89,7 @@ function Home() {
 
       return params.toString();
     },
-    [searchParams],
+    [searchParams]
   );
 
   useEffect(() => {
@@ -108,7 +109,7 @@ function Home() {
       .then((response) => {
         if (!response.ok) {
           throw new Error(
-            `This is an HTTP error: The status is ${response.status}`,
+            `This is an HTTP error: The status is ${response.status}`
           );
         }
         return response.json();
@@ -137,6 +138,7 @@ function Home() {
         {data &&
           data.map(({ id, url }) => <div key={id}>{Image({ id, url })}</div>)}
       </div>
+      <Footer />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/header";
+import Footer from "../../components/footer";
 import styled from "styled-components";
 
 const TextWrapper = styled.section`
@@ -43,6 +44,7 @@ function MissionPage() {
           )!
         </TextWrapper>
       </div>
+      <Footer />
     </>
   );
 }

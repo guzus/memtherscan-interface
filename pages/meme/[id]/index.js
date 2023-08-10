@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "../../../components/image";
 import Header from "../../../components/header";
+import Footer from "../../components/footer";
 import { BASE_URL } from "../../../constants";
 import { useRouter } from "next/router";
 
@@ -15,7 +16,7 @@ function Detail({ params }) {
     .then((response) => {
       if (!response.ok) {
         throw new Error(
-          `This is an HTTP error: The status is ${response.status}`,
+          `This is an HTTP error: The status is ${response.status}`
         );
       }
       return response.json();
@@ -43,6 +44,7 @@ function Detail({ params }) {
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
       <div>{Image({ url, id })}</div>
+      <Footer />
     </>
   );
 }

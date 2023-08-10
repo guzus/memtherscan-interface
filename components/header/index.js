@@ -9,7 +9,15 @@ const HeaderSection = styled.section`
   cursor: grab;
 `;
 
-export default function Header(props) {
+export default function Header(
+  props = {
+    title: "Memtherscan",
+    description: "The Centre of Crypto Memes and Culture",
+    keywords: "crypto, meme",
+    imgsrc: "https://memtherscan.xyz/favicon.ico",
+    url: "https://memtherscan.xyz",
+  }
+) {
   return (
     <>
       <Head>
