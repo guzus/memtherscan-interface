@@ -11,9 +11,9 @@ function TagBar(createQueryString) {
   const router = useRouter();
   const pathname = usePathname();
   const tags = [
-    { title: "latest", key: "sortByTimestamp", value: "desc" },
-    { title: "trending", key: "tag", value: "trending" },
-    { title: "ethereum", key: "tag", value: "ethereum" },
+    { title: "# latest", key: "sortByTimestamp", value: "desc" },
+    { title: "# trending", key: "tag", value: "trending" },
+    { title: "# ethereum", key: "tag", value: "ethereum" },
   ];
 
   return (
