@@ -9,37 +9,37 @@ const HeaderSection = styled.section`
 `;
 
 export default function Header(
-  props = {
-    title: "Memtherscan",
-    description: "The Centre of Crypto Memes and Culture",
-    keywords: "crypto, meme",
-    imgsrc: "https://memtherscan.xyz/favicon.ico",
-    url: "https://memtherscan.xyz",
+  {
+    title = "Memtherscan",
+    description = "The Centre of Crypto Memes and Culture",
+    keywords =  "crypto, meme",
+    imgsrc =  "https://memtherscan.xyz/favicon.ico",
+    url =  "https://memtherscan.xyz",
   },
 ) {
   return (
     <>
       <Head>
-        <title>{props.title}</title>
+        <title>{title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-        <meta name="description" content={props.description} />
-        <meta name="keywords" content={props.keywords} />
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
 
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={props.title} />
-        <meta property="og:site_name" content={props.title} />
-        <meta property="og:description" content={props.description} />
-        <meta property="og:image" content={props.imgsrc} />
-        <meta property="og:url" content={props.url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:site_name" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={imgsrc} />
+        <meta property="og:url" content={url} />
 
         <meta name="twitter:site" content="@AirdropBrokers" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={props.title} />
-        <meta name="twitter:description" content={props.description} />
-        <meta name="twitter:image" content={props.imgsrc} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={imgsrc} />
 
-        <link rel="canonical" href={props.url} />
+        <link rel="canonical" href={url} />
       </Head>
       <HeaderSection>
         <h1 className="title">
