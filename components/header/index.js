@@ -33,7 +33,7 @@ export default function Header(
         <meta property="og:image" content={imgsrc} />
         <meta property="og:url" content={url} />
 
-        <meta name="twitter:site" content="@AirdropBrokers" />
+        <meta name="twitter:site" content="@memtherscan" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />

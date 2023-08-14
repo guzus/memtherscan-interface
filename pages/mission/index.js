@@ -44,7 +44,7 @@ function MissionPage() {
             awesomepulsar@gmail.com
           </Link>
           ) or twitter (
-          <Link href="https://twitter.com/AirdropBrokers">@AirdropBrokers</Link>
+          <Link href="https://twitter.com/memtherscan">@memtherscan</Link>
           )!
         </TextWrapper>
       </div>

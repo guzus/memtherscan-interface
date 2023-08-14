@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <FooterSection className="bg-dark text-center text-white">
       <div style={{ backgroundColor: "rgba(0, 0, 0, 0)", color: "white" }}>
-        <Link href="https://twitter.com/AirdropBrokers">
+        <Link href="https://twitter.com/memtherscan">
           <div style={{ fontSize: "40px", color: "pink" }}>twitter</div>
         </Link>
         <Link href="https://discord.gg/K4nFPbPHm">
