@@ -8,15 +8,15 @@ const HeaderSection = styled.section`
   text-align: center;
 `;
 
-export default function Header(
-  {
-    title = "Memtherscan",
-    description = "The Centre of Crypto Memes and Culture",
-    keywords =  "crypto, meme",
-    imgsrc =  "https://memtherscan.xyz/favicon.ico",
-    url =  "https://memtherscan.xyz",
-  },
-) {
+const favicon = "https://memtherscan.xyz/favicon.ico";
+
+export default function Header({
+  title = "Memtherscan",
+  description = "The Centre of Crypto Memes and Culture",
+  keywords = "crypto, meme",
+  imgsrc = favicon,
+  url = "https://memtherscan.xyz",
+}) {
   return (
     <>
       <Head>
@@ -30,14 +30,16 @@ export default function Header(
         <meta property="og:title" content={title} />
         <meta property="og:site_name" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={imgsrc} />
+        {/* imgsrc */}
+        <meta property="og:image" content={favicon} />
         <meta property="og:url" content={url} />
 
         <meta name="twitter:site" content="@memtherscan" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={imgsrc} />
+        {/* imgsrc */}
+        <meta name="twitter:image" content={favicon} />
 
         <link rel="canonical" href={url} />
       </Head>

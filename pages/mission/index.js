@@ -21,18 +21,17 @@ function MissionPage() {
         <TextWrapper>
           <h1>Our mission: Illuminating the dark forest of crypto meme</h1>
           <br />
-          <h2>Meme is the greatest utility of Crypto.</h2>
+          <h2>The Centre of Crypto Culture.</h2>
           We value the good vibe of crypto communities, and are working hard to
           make it to the next level.
         </TextWrapper>
         <TextWrapper>
-          <h2>Roadmap</h2>
+          <h2>Roadmap (upcoming features)</h2>
           <ul>
-            <div>- Log In with Metamask</div>
-            <div>- Vote feature</div>
-            <div>- Diverse web3 API integration ex) etherscan.io</div>
-            <div>- Meme recommendation Feature</div>
-            <div>- MemtherscanDAO</div>
+            <div>- Web3 Login</div>
+            <div>- Meme-Voting</div>
+            <div>- Memecoin Shilling</div>
+            <div>- Meme hierarchy pyramid feature</div>
             <div>... And much more to come!</div>
           </ul>
         </TextWrapper>
