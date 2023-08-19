@@ -26,6 +26,22 @@ function MissionPage() {
           make it to the next level.
         </TextWrapper>
         <TextWrapper>
+          <h2>Team</h2>
+          <ul>
+            <div>
+              -
+              <Link
+                href="https://x.com/uncanny_guzus"
+                style={{
+                  textDecoration: "underline",
+                }}
+              >
+                guzus (dev)
+              </Link>
+            </div>
+          </ul>
+        </TextWrapper>
+        <TextWrapper>
           <h2>Roadmap (upcoming features)</h2>
           <ul>
             <div>- Web3 Login</div>
@@ -39,11 +55,23 @@ function MissionPage() {
           <h2>FAQ</h2>
           If you want to join us or have anything to discuss, contact us through
           email (
-          <Link href="mailto:awesomepulsar@gmail.com">
+          <Link
+            href="mailto:awesomepulsar@gmail.com"
+            style={{
+              textDecoration: "underline",
+            }}
+          >
             awesomepulsar@gmail.com
           </Link>
           ) or twitter (
-          <Link href="https://twitter.com/memtherscan">@memtherscan</Link>
+          <Link
+            href="https://twitter.com/memtherscan"
+            style={{
+              textDecoration: "underline",
+            }}
+          >
+            @memtherscan
+          </Link>
           )!
         </TextWrapper>
       </div>
