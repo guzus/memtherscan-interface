@@ -136,7 +136,7 @@ function Home() {
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
       <div>
         {data &&
-          data.map(({ id, url }) => <div key={id}>{Image({ id, url })}</div>)}
+          data.map(({ id, url, tags }) => <div key={id}>{Image({ id, url, tags })}</div>)}
       </div>
       <Footer />
     </div>
