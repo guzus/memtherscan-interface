@@ -44,6 +44,9 @@ function MissionPage() {
         <TextWrapper>
           <h2>Roadmap (upcoming features)</h2>
           <ul>
+            <div>- Memepool</div>
+            <div>- Meme merge</div>
+            <div>- Meme rollup</div>
             <div>- Web3 Login</div>
             <div>- Meme-Voting</div>
             <div>- Memecoin Shilling</div>
@@ -75,6 +78,7 @@ function MissionPage() {
           )!
         </TextWrapper>
       </div>
+      <img src="favicon.ico" style={{ "max-width": "400px", width: "100%" }} />
       <Footer />
     </>
   );

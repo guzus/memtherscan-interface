@@ -34,7 +34,7 @@ function TagBar(createQueryString) {
       <button className="tag" onClick={() => router.push("/upload")}>
         upload
       </button>
-      <button className="tag" onClick={() => router.push("/mission")}>
+      <button className="tag" onClick={() => router.push("/about")}>
         about us
       </button>
     </ScrollMenu>
@@ -89,7 +89,7 @@ function Home() {
 
       return params.toString();
     },
-    [searchParams],
+    [searchParams]
   );
 
   useEffect(() => {
@@ -109,7 +109,7 @@ function Home() {
       .then((response) => {
         if (!response.ok) {
           throw new Error(
-            `This is an HTTP error: The status is ${response.status}`,
+            `This is an HTTP error: The status is ${response.status}`
           );
         }
         return response.json();
@@ -136,7 +136,9 @@ function Home() {
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
       <div>
         {data &&
-          data.map(({ id, url, tags }) => <div key={id}>{Image({ id, url, tags })}</div>)}
+          data.map(({ id, url, tags }) => (
+            <div key={id}>{Image({ id, url, tags })}</div>
+          ))}
       </div>
       <Footer />
     </div>

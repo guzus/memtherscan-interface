@@ -24,15 +24,20 @@ const Frame = styled.div`
   // border-style: dashed;
 `;
 
-function Image({id, url, tags}) {
+function Image({ id, url, tags }) {
   const router = useRouter();
   return (
     <Frame className="meme">
-        <div className="tags">
-            {tags && tags.map(({name}) => {
-                return <div className="tag" key={name}># {name}</div>
-            })}
-        </div>
+      <div className="tags">
+        {tags &&
+          tags.map(({ name }) => {
+            return (
+              <div className="tag" key={name}>
+                # {name}
+              </div>
+            );
+          })}
+      </div>
       <LazyLoadImage
         src={url}
         alt="crypto-meme"
