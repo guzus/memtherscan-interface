@@ -29,6 +29,7 @@ const SubmitWrapper = styled.section`
 
 function FileUploadPage() {
   const [selectedFile, setSelectedFile] = useState();
+  const [tags, setTags] = useState([]);
   const [isFilePicked, setIsFilePicked] = useState(false);
   const [isUploadSuccessful, setIsUploadSuccessful] = useState(false);
   const [isUploadSubmitted, setIsUploadSubmitted] = useState(false);
@@ -42,6 +43,7 @@ function FileUploadPage() {
     setIsUploadSubmitted(true);
     const formData = new FormData();
 
+    formData.append("tags", tags);
     formData.append("file", selectedFile);
 
     fetch(BASE_URL + "/upload", {
