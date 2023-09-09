@@ -84,12 +84,17 @@ function FileUploadPage() {
       <Header></Header>
       <div>
         <UploadWrapper>
+          <h2>Upload an image</h2>
+          {/*<div>*/}
+          {/*  Choose tags*/}
+          {/*</div>*/}
           <input type="file" name="file" onChange={changeHandler} />
           {isFilePicked ? (
             <div>
-              <p>Filename: {selectedFile.name}</p>
+              {/*<p>Filename: {selectedFile.name}</p>*/}
               {/* <p>Filetype: {selectedFile.type}</p> */}
-              <p>Size in bytes: {selectedFile.size}</p>
+              <br/>
+              <p>Size: {selectedFile?.size / 1000} KB</p>
               {/* <p>
                 lastModifiedDate:{" "}
                 {selectedFile.lastModifiedDate.toLocaleDateString()}
@@ -98,7 +103,8 @@ function FileUploadPage() {
           ) : (
             <p></p>
           )}
-          <i>mp4 isn't supported yet, but we're working on it!</i>
+          <br />
+          <i>NOTE: mp4 isn't supported yet! (we're working on it)</i>
         </UploadWrapper>
         <SubmitWrapper>
           <div>
