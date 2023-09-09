@@ -45,7 +45,10 @@ export default function Header({
       </Head>
       <HeaderSection>
         <h1 className="title">
-          <Link href={"/"}>Memtherscan</Link>
+          <Link href={"/"} style={{ "font-family": "Georgia", "color": "yellow", "background": "red", "padding": "10px" }}
+          >
+            Memtherscan
+          </Link>
         </h1>
       </HeaderSection>
     </>

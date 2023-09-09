@@ -19,9 +19,15 @@ const Frame = styled.div`
   margin: 0 auto;
   margin-top: 5%;
   margin-bottom: 5%;
-  border: 10px solid pink;
+  border: 10px solid orangered;
   border-radius: 10px;
   // border-style: dashed;
+`;
+
+const ImageTag = styled.div`
+  color: orangered;
+  background: antiquewhite;
+  padding: 1px;
 `;
 
 function Image({ id, url, tags }) {
@@ -32,9 +38,9 @@ function Image({ id, url, tags }) {
         {tags &&
           tags.map(({ name }) => {
             return (
-              <div className="tag" key={name}>
-                # {name}
-              </div>
+              <ImageTag className="tag" key={name}>
+                #{name}
+              </ImageTag>
             );
           })}
       </div>

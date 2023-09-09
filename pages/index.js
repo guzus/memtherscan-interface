@@ -8,13 +8,24 @@ import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import "react-horizontal-scrolling-menu/dist/styles.css";
 import Footer from "../components/footer/index.js";
 
+
+const tagStyle = {
+    color: "red",
+    background: "yellow",
+};
+
+const infoTagStyle = {
+    color: "white",
+    background: "blue",
+}
+
 function TagBar(createQueryString) {
   const router = useRouter();
   const pathname = usePathname();
   const tags = [
-    { title: "# latest", key: "sortByTimestamp", value: "desc" },
-    { title: "# trending", key: "tag", value: "trending" },
-    { title: "# ethereum", key: "tag", value: "ethereum" },
+    { title: "#latest", key: "sortByTimestamp", value: "desc" },
+    { title: "#trending", key: "tag", value: "trending" },
+    { title: "#ethereum", key: "tag", value: "ethereum" },
   ];
 
   return (
@@ -26,16 +37,16 @@ function TagBar(createQueryString) {
           onClick={() => {
             router.push(pathname + "?" + createQueryString(key, value));
           }}
+          style={tagStyle}
         >
           {title}
         </button>
       ))}
-      {/*<TagCard title={"upload"} key={"upload"} />*/}
-      <button className="tag" onClick={() => router.push("/upload")}>
+      <button className="tag" onClick={() => router.push("/upload")} style={infoTagStyle}>
         upload
       </button>
-      <button className="tag" onClick={() => router.push("/about")}>
-        about us
+      <button className="tag" onClick={() => router.push("/about")} style={infoTagStyle}>
+        wtf?
       </button>
     </ScrollMenu>
   );
@@ -128,9 +139,8 @@ function Home() {
   }, [searchParams]);
 
   return (
-    <div className="App">
+    <div className="App" style={{"background": "skyblue"}}>
       <Header />
-      <div style={{ borderStyle: "dashed", borderRadius: 5 }}></div>
       {TagBar(createQueryString)}
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}

@@ -36,7 +36,7 @@ function Detail({ params }) {
     });
 
   return (
-    <>
+    <div style={{"background": "skyblue"}}>
       {Header({
         title: "Memtherscan | Meme",
         description: "The Crypto meme Aggregator",
@@ -47,7 +47,7 @@ function Detail({ params }) {
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
       <div>{Image({ id, url, tags })}</div>
       <Footer />
-    </>
+    </div>
   );
 }
 
