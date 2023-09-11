@@ -7,8 +7,9 @@ import { BASE_URL } from "../constants";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import "react-horizontal-scrolling-menu/dist/styles.css";
 import Footer from "../components/footer/index.js";
+import ReferralAd from "../components/card/referralAd.js";
 
-
+const referralCodes = "ft-4vfvde45" + "\n" + "ft-q1xlf5hj" + "\n" + "ft-c57lk7gf" + "\n" + "ft-7sgp8y3r"
 const tagStyle = {
     color: "red",
     background: "yellow",
@@ -49,18 +50,6 @@ function TagBar(createQueryString) {
         wtf?
       </button>
     </ScrollMenu>
-  );
-}
-
-function TagCard({ onClick, selected, title, itemId }) {
-  const visibility = React.useContext(VisibilityContext);
-
-  return (
-    <button onClick={() => onClick(visibility)} tabIndex={0} className="tag">
-      <div>{title}</div>
-      {/* <div>visible: {JSON.stringify(!!visibility.isItemVisible(itemId))}</div>
-        <div>selected: {JSON.stringify(!!selected)}</div> */}
-    </button>
   );
 }
 
@@ -144,11 +133,19 @@ function Home() {
       {TagBar(createQueryString)}
       {loading && <div>A moment please...</div>}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
-      <div>
-        {data &&
-          data.map(({ id, url, tags }) => (
-            <div key={id}>{Image({ id, url, tags })}</div>
-          ))}
+        <div>
+            {data &&
+            data.map(({ id, url, tags }, i) => {
+                if (i === 5) {
+                    return (
+                        <React.Fragment key={id}>
+                            <ReferralAd title="friend.tech referral codes" text={referralCodes} website="https://friend.tech" />
+                            <div key={id}>{Image({ id, url, tags })}</div>
+                        </React.Fragment>
+                    );
+                }
+                return <div key={id}>{Image({ id, url, tags })}</div>;
+            })}
       </div>
       <Footer />
     </div>
