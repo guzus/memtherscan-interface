@@ -9,7 +9,7 @@ import "react-horizontal-scrolling-menu/dist/styles.css";
 import Footer from "../components/footer/index.js";
 import ReferralAd from "../components/card/referralAd.js";
 
-const referralCodes = "ft-4vfvde45" + "\n" + "ft-q1xlf5hj" + "\n" + "ft-c57lk7gf" + "\n" + "ft-7sgp8y3r"
+const referralCodes = "ft-01miicfc" + "\n" + "ft-vvcqnz69" + "\n" + "ft-vrv4jnv2" + "\n" + "ft-81h0dwzb"
 const tagStyle = {
     color: "red",
     background: "yellow",
