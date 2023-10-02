@@ -4,6 +4,7 @@ import Header from "../../../components/header";
 import Footer from "../../../components/footer";
 import { BASE_URL } from "../../../constants";
 import { useRouter } from "next/router";
+import Loading from "../../../components/loading";
 
 function Detail({ params }) {
   const router = useRouter();
@@ -17,7 +18,7 @@ function Detail({ params }) {
     .then((response) => {
       if (!response.ok) {
         throw new Error(
-          `This is an HTTP error: The status is ${response.status}`,
+          `This is an HTTP error: The status is ${response.status}`
         );
       }
       return response.json();
@@ -36,14 +37,14 @@ function Detail({ params }) {
     });
 
   return (
-    <div style={{"background": "skyblue"}}>
+    <div style={{ background: "skyblue" }}>
       {Header({
         title: "Memtherscan | Meme",
         description: "The Crypto meme Aggregator",
         keywords: "crypto, meme",
         imgsrc: url,
       })}
-      {loading && <div>A moment please...</div>}
+      {loading && Loading()}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
       <div>{Image({ id, url, tags })}</div>
       <Footer />

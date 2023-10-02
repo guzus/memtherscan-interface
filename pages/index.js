@@ -8,17 +8,25 @@ import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import "react-horizontal-scrolling-menu/dist/styles.css";
 import Footer from "../components/footer/index.js";
 import ReferralAd from "../components/card/referralAd.js";
+import Loading from "../components/loading/index.js";
 
-const referralCodes = "ft-01miicfc" + "\n" + "ft-vvcqnz69" + "\n" + "ft-vrv4jnv2" + "\n" + "ft-81h0dwzb"
+const referralCodes =
+  "ft-01miicfc" +
+  "\n" +
+  "ft-vvcqnz69" +
+  "\n" +
+  "ft-vrv4jnv2" +
+  "\n" +
+  "ft-81h0dwzb";
 const tagStyle = {
-    color: "red",
-    background: "yellow",
+  color: "red",
+  background: "yellow",
 };
 
 const infoTagStyle = {
-    color: "white",
-    background: "blue",
-}
+  color: "white",
+  background: "blue",
+};
 
 function TagBar(createQueryString) {
   const router = useRouter();
@@ -43,10 +51,18 @@ function TagBar(createQueryString) {
           {title}
         </button>
       ))}
-      <button className="tag" onClick={() => router.push("/upload")} style={infoTagStyle}>
+      <button
+        className="tag"
+        onClick={() => router.push("/upload")}
+        style={infoTagStyle}
+      >
         upload
       </button>
-      <button className="tag" onClick={() => router.push("/about")} style={infoTagStyle}>
+      <button
+        className="tag"
+        onClick={() => router.push("/about")}
+        style={infoTagStyle}
+      >
         wtf?
       </button>
     </ScrollMenu>
@@ -128,24 +144,28 @@ function Home() {
   }, [searchParams]);
 
   return (
-    <div className="App" style={{"background": "skyblue"}}>
+    <div className="App" style={{ background: "skyblue" }}>
       <Header />
       {TagBar(createQueryString)}
-      {loading && <div>A moment please...</div>}
+      {loading && Loading()}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
-        <div>
-            {data &&
-            data.map(({ id, url, tags }, i) => {
-                if (i === 5) {
-                    return (
-                        <React.Fragment key={id}>
-                            <ReferralAd title="friend.tech referral codes" text={referralCodes} website="https://friend.tech" />
-                            <div key={id}>{Image({ id, url, tags })}</div>
-                        </React.Fragment>
-                    );
-                }
-                return <div key={id}>{Image({ id, url, tags })}</div>;
-            })}
+      <div>
+        {data &&
+          data.map(({ id, url, tags }, i) => {
+            if (i === 5) {
+              return (
+                <React.Fragment key={id}>
+                  <ReferralAd
+                    title="friend.tech referral codes"
+                    text={referralCodes}
+                    website="https://friend.tech"
+                  />
+                  <div key={id}>{Image({ id, url, tags })}</div>
+                </React.Fragment>
+              );
+            }
+            return <div key={id}>{Image({ id, url, tags })}</div>;
+          })}
       </div>
       <Footer />
     </div>
