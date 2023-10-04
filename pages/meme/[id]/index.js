@@ -11,6 +11,7 @@ function Detail({ params }) {
   const { id } = router.query;
   const [url, setUrl] = useState(null);
   const [tags, setTags] = useState(null);
+  const [timestamp, setTimestamp] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -23,9 +24,10 @@ function Detail({ params }) {
       }
       return response.json();
     })
-    .then(({ url, tags }) => {
+    .then(({ url, tags, timestamp }) => {
       setUrl(url);
       setTags(tags);
+      setTimestamp(timestamp);
       setError(null);
     })
     .catch((err) => {
@@ -46,7 +48,7 @@ function Detail({ params }) {
       })}
       {loading && Loading()}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
-      <div>{Image({ id, url, tags })}</div>
+      <div>{Image({ id, url, tags, timestamp })}</div>
       <Footer />
     </div>
   );

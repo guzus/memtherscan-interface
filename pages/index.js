@@ -151,7 +151,7 @@ function Home() {
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
       <div>
         {data &&
-          data.map(({ id, url, tags }, i) => {
+          data.map(({ id, url, tags, timestamp }, i) => {
             if (i === 5) {
               return (
                 <React.Fragment key={id}>
@@ -160,11 +160,11 @@ function Home() {
                     text={referralCodes}
                     website="https://friend.tech"
                   />
-                  <div key={id}>{Image({ id, url, tags })}</div>
+                  <div key={id}>{Image({ id, url, tags, timestamp })}</div>
                 </React.Fragment>
               );
             }
-            return <div key={id}>{Image({ id, url, tags })}</div>;
+            return <div key={id}>{Image({ id, url, tags, timestamp })}</div>;
           })}
       </div>
       <Footer />

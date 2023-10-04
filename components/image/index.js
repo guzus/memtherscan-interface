@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useRouter } from "next/navigation";
+import { formatDate } from "../../lib/date";
 
 const Wrapper = styled.section`
   padding: 10px;
@@ -30,7 +31,7 @@ const ImageTag = styled.div`
   padding: 1px;
 `;
 
-function Image({ id, url, tags }) {
+function Image({ id, url, tags, timestamp }) {
   const router = useRouter();
   return (
     <Frame className="meme">
@@ -49,6 +50,14 @@ function Image({ id, url, tags }) {
         alt="crypto-meme"
         onClick={() => router.push(`/meme/${id}`)}
       />
+      <div>
+          {timestamp !== "0001-01-01T00:00:00Z" &&
+            <div>
+              uploaded {formatDate(timestamp)}
+            </div>
+          }
+      </div>
+
       {/* <UtilBox className="vote"> */}
       {/* <Wrapper>
           <AiFillCaretUp />
