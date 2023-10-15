@@ -4,7 +4,7 @@ import Script from "next/script";
 import { useRouter } from "next/router";
 import { pageview, event } from "../lib/gtag";
 
-export default function MyApp({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
