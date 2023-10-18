@@ -11,6 +11,7 @@ function Detail({ params }) {
   const { id } = router.query;
   const [url, setUrl] = useState(null);
   const [tags, setTags] = useState(null);
+  const [links, setLinks] = useState(null);
   const [timestamp, setTimestamp] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -25,8 +26,9 @@ function Detail({ params }) {
           }
           return response.json();
         })
-        .then(({ url, tags, timestamp }) => {
+        .then(({ url, tags, links, timestamp }) => {
           setUrl(url);
+          setLinks(links);
           setTags(tags);
           setTimestamp(timestamp);
           setError(null);
@@ -38,7 +40,7 @@ function Detail({ params }) {
         .finally(() => {
           setLoading(false);
         });
-  }, []);
+  }, [id]);
 
   return (
     <div style={{ background: "skyblue" }}>
@@ -50,7 +52,7 @@ function Detail({ params }) {
       })}
       {loading && Loading()}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
-      <div>{Image({ id, url, tags, timestamp })}</div>
+      <div>{Image({ id, url, tags, links, timestamp })}</div>
       <Footer />
     </div>
   );

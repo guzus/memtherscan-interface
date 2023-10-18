@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useRouter } from "next/navigation";
 import { formatDate } from "../../lib/date";
+import Link from "next/link";
 
 const Wrapper = styled.section`
   padding: 10px;
@@ -31,7 +32,7 @@ const ImageTag = styled.div`
   padding: 1px;
 `;
 
-function Image({ id, url, tags, timestamp }) {
+function Image({ id, url, tags, links, timestamp }) {
   const router = useRouter();
   return (
     <Frame className="meme">
@@ -44,6 +45,18 @@ function Image({ id, url, tags, timestamp }) {
               </ImageTag>
             );
           })}
+      </div>
+      <div className="links">
+        {links &&
+            links.map(({ platform, url }) => {
+                return (
+                    <ImageTag className="link" key={url}>
+                        <Link href={url}>
+                            {platform} : {url}
+                        </Link>
+                    </ImageTag>
+                );
+            })}
       </div>
       <LazyLoadImage
         src={url}
