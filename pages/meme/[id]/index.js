@@ -15,28 +15,30 @@ function Detail({ params }) {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  fetch(BASE_URL + `/image/${id}`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(
-          `This is an HTTP error: The status is ${response.status}`
-        );
-      }
-      return response.json();
-    })
-    .then(({ url, tags, timestamp }) => {
-      setUrl(url);
-      setTags(tags);
-      setTimestamp(timestamp);
-      setError(null);
-    })
-    .catch((err) => {
-      setError(err.message);
-      setUrl(null);
-    })
-    .finally(() => {
-      setLoading(false);
-    });
+  useEffect(() => {
+    fetch(BASE_URL + `/image/${id}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+                `This is an HTTP error: The status is ${response.status}`
+            );
+          }
+          return response.json();
+        })
+        .then(({ url, tags, timestamp }) => {
+          setUrl(url);
+          setTags(tags);
+          setTimestamp(timestamp);
+          setError(null);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setUrl(null);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+  }, []);
 
   return (
     <div style={{ background: "skyblue" }}>
