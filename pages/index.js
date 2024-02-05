@@ -105,7 +105,7 @@ function Home() {
 
       return params.toString();
     },
-    [searchParams]
+    [searchParams],
   );
 
   useEffect(() => {
@@ -125,7 +125,7 @@ function Home() {
       .then((response) => {
         if (!response.ok) {
           throw new Error(
-            `This is an HTTP error: The status is ${response.status}`
+            `This is an HTTP error: The status is ${response.status}`,
           );
         }
         return response.json();
@@ -159,6 +159,17 @@ function Home() {
                     title="friend.tech referral codes"
                     text={referralCodes}
                     website="https://friend.tech"
+                  />
+                  <div key={id}>{Image({ id, url, tags, timestamp })}</div>
+                </React.Fragment>
+              );
+            } else if (i === 10) {
+              return (
+                <React.Fragment key={id}>
+                  <ReferralAd
+                    title="Farcaster(warpcast) invite link"
+                    text={""}
+                    website="https://warpcast.com/~/invite-page/245998?id=3c13d47b"
                   />
                   <div key={id}>{Image({ id, url, tags, timestamp })}</div>
                 </React.Fragment>
