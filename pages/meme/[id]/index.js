@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo, useCallback } from "react";
 import Image from "../../../components/image";
 import Header from "../../../components/header";
 import Footer from "../../../components/footer";
@@ -9,50 +9,72 @@ import Loading from "../../../components/loading";
 function Detail({ params }) {
   const router = useRouter();
   const { id } = router.query;
-  const [url, setUrl] = useState(null);
-  const [tags, setTags] = useState(null);
-  const [links, setLinks] = useState(null);
-  const [timestamp, setTimestamp] = useState(null);
+  const [data, setData] = useState({
+    url: null,
+    tags: null,
+    links: null,
+    timestamp: null,
+  });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetch(BASE_URL + `/image/${id}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(
-                `This is an HTTP error: The status is ${response.status}`
-            );
-          }
-          return response.json();
-        })
-        .then(({ url, tags, links, timestamp }) => {
-          setUrl(url);
-          setLinks(links);
-          setTags(tags);
-          setTimestamp(timestamp);
-          setError(null);
-        })
-        .catch((err) => {
-          setError(err.message);
-          setUrl(null);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
+  const fetchData = useCallback(async () => {
+    if (!id) return;
+    try {
+      const response = await fetch(BASE_URL + `/image/${id}`);
+      if (!response.ok) {
+        throw new Error(
+          `This is an HTTP error: The status is ${response.status}`
+        );
+      }
+      const result = await response.json();
+      setData({
+        url: result.url,
+        tags: result.tags,
+        links: result.links,
+        timestamp: result.timestamp,
+      });
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+      setData({ url: null, tags: null, links: null, timestamp: null });
+    } finally {
+      setLoading(false);
+    }
   }, [id]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  const memoizedHeader = useMemo(
+    () => (
+      <Header
+        title="Memtherscan | Meme"
+        description="The Crypto meme Aggregator"
+        keywords="crypto, meme"
+        imgsrc={data.url}
+      />
+    ),
+    [data.url]
+  );
 
   return (
     <div style={{ background: "skyblue" }}>
-      {Header({
-        title: "Memtherscan | Meme",
-        description: "The Crypto meme Aggregator",
-        keywords: "crypto, meme",
-        imgsrc: url,
-      })}
-      {loading && Loading()}
-      {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
-      <div>{Image({ id, url, tags, links, timestamp })}</div>
+      {memoizedHeader}
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <div>{`There is a problem fetching the data - ${error}`}</div>
+      ) : (
+        <Image
+          id={id}
+          url={data.url}
+          tags={data.tags}
+          links={data.links}
+          timestamp={data.timestamp}
+        />
+      )}
       <Footer />
     </div>
   );
