@@ -6,7 +6,7 @@ import { BASE_URL } from "../../../constants";
 import { useRouter } from "next/router";
 import Loading from "../../../components/loading";
 
-function Detail({ params }) {
+function Detail() {
   const router = useRouter();
   const { id } = router.query;
   const [data, setData] = useState({
@@ -60,7 +60,7 @@ function Detail({ params }) {
   );
 
   return (
-    <div style={{ background: "skyblue" }}>
+    <div className="App" style={{ background: "lightblue" }}>
       {memoizedHeader}
       {loading ? (
         <Loading />

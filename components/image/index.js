@@ -48,15 +48,15 @@ function Image({ id, url, tags, links, timestamp }) {
       </div>
       <div className="links">
         {links &&
-            links.map(({ platform, url }) => {
-                return (
-                    <ImageTag className="link" key={url}>
-                        <Link href={url}>
-                            {platform} : {url}
-                        </Link>
-                    </ImageTag>
-                );
-            })}
+          links.map(({ platform, url }) => {
+            return (
+              <ImageTag className="link" key={url}>
+                <Link href={url}>
+                  {platform} : {url}
+                </Link>
+              </ImageTag>
+            );
+          })}
       </div>
       <LazyLoadImage
         src={url}
@@ -64,11 +64,9 @@ function Image({ id, url, tags, links, timestamp }) {
         onClick={() => router.push(`/meme/${id}`)}
       />
       <div>
-          {timestamp !== "0001-01-01T00:00:00Z" &&
-            <div>
-              uploaded {formatDate(timestamp)}
-            </div>
-          }
+        {timestamp !== "0001-01-01T00:00:00Z" && (
+          <div>uploaded {formatDate(timestamp)}</div>
+        )}
       </div>
 
       {/* <UtilBox className="vote"> */}
