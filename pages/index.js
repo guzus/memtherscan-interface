@@ -1,14 +1,19 @@
 import { useSearchParams, usePathname } from "next/navigation";
 import { useRouter } from "next/router";
-import React, { useEffect, useState, useCallback } from "react";
-import Image from "../components/image/index.js";
-import Header from "../components/header";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
+import dynamic from "next/dynamic";
 import { BASE_URL } from "../constants";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import "react-horizontal-scrolling-menu/dist/styles.css";
-import Footer from "../components/footer/index.js";
-import ReferralAd from "../components/card/referralAd.js";
-import Loading from "../components/loading/index.js";
+
+// Dynamic Imports
+const Image = dynamic(() => import("../components/image/index.js"));
+const Header = dynamic(() => import("../components/header"));
+const Footer = dynamic(() => import("../components/footer/index.js"));
+const ReferralAd = dynamic(() => import("../components/card/referralAd.js"));
+const Loading = dynamic(() => import("../components/loading/index.js"), {
+  ssr: false,
+});
 
 const referralCodes =
   "ft-01miicfc" +
@@ -18,6 +23,7 @@ const referralCodes =
   "ft-vrv4jnv2" +
   "\n" +
   "ft-81h0dwzb";
+
 const tagStyle = {
   color: "red",
   background: "yellow",
@@ -28,14 +34,17 @@ const infoTagStyle = {
   background: "blue",
 };
 
-function TagBar(createQueryString) {
+function TagBar({ createQueryString }) {
   const router = useRouter();
   const pathname = usePathname();
-  const tags = [
-    { title: "#latest", key: "sortByTimestamp", value: "desc" },
-    { title: "#trending", key: "tag", value: "trending" },
-    { title: "#ethereum", key: "tag", value: "ethereum" },
-  ];
+  const tags = useMemo(
+    () => [
+      { title: "#latest", key: "sortByTimestamp", value: "desc" },
+      { title: "#trending", key: "tag", value: "trending" },
+      { title: "#ethereum", key: "tag", value: "ethereum" },
+    ],
+    []
+  );
 
   return (
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
@@ -96,8 +105,6 @@ function Home() {
   const [error, setError] = useState(null);
   const searchParams = useSearchParams();
 
-  // Get a new searchParams string by merging the current
-  // searchParams with a provided key/value pair
   const createQueryString = useCallback(
     (name, value) => {
       const params = new URLSearchParams(searchParams);
@@ -105,17 +112,16 @@ function Home() {
 
       return params.toString();
     },
-    [searchParams],
+    [searchParams]
   );
 
   useEffect(() => {
     const tag = searchParams.get("tag");
     const sortByTimestamp = searchParams.get("sortByTimestamp");
-    let url;
+    let url = BASE_URL + `/image?shuffle=true`;
+
     if (tag) {
-      url = BASE_URL + `/image?shuffle=true&tag=${tag}`;
-    } else {
-      url = BASE_URL + `/image?shuffle=true`;
+      url += `&tag=${tag}`;
     }
     if (sortByTimestamp) {
       url += `&sortByTimestamp=${sortByTimestamp}`;
@@ -125,7 +131,7 @@ function Home() {
       .then((response) => {
         if (!response.ok) {
           throw new Error(
-            `This is an HTTP error: The status is ${response.status}`,
+            `This is an HTTP error: The status is ${response.status}`
           );
         }
         return response.json();
@@ -146,37 +152,30 @@ function Home() {
   return (
     <div className="App" style={{ background: "skyblue" }}>
       <Header />
-      {TagBar(createQueryString)}
-      {loading && Loading()}
+      <TagBar createQueryString={createQueryString} />
+      {loading && <Loading />}
       {error && <div>{`There is a problem fetching the data - ${error}`}</div>}
       <div>
         {data &&
-          data.map(({ id, url, tags, timestamp }, i) => {
-            if (i === 5) {
-              return (
-                <React.Fragment key={id}>
-                  <ReferralAd
-                    title="friend.tech referral codes"
-                    text={referralCodes}
-                    website="https://friend.tech"
-                  />
-                  <div key={id}>{Image({ id, url, tags, timestamp })}</div>
-                </React.Fragment>
-              );
-            } else if (i === 10) {
-              return (
-                <React.Fragment key={id}>
-                  <ReferralAd
-                    title="Farcaster(warpcast) invite link"
-                    text={""}
-                    website="https://warpcast.com/~/invite-page/245998?id=3c13d47b"
-                  />
-                  <div key={id}>{Image({ id, url, tags, timestamp })}</div>
-                </React.Fragment>
-              );
-            }
-            return <div key={id}>{Image({ id, url, tags, timestamp })}</div>;
-          })}
+          data.map(({ id, url, tags, timestamp }, i) => (
+            <React.Fragment key={id}>
+              {i === 5 && (
+                <ReferralAd
+                  title="friend.tech referral codes"
+                  text={referralCodes}
+                  website="https://friend.tech"
+                />
+              )}
+              {i === 10 && (
+                <ReferralAd
+                  title="Farcaster(warpcast) invite link"
+                  text={""}
+                  website="https://warpcast.com/~/invite-page/245998?id=3c13d47b"
+                />
+              )}
+              <Image id={id} url={url} tags={tags} timestamp={timestamp} />
+            </React.Fragment>
+          ))}
       </div>
       <Footer />
     </div>
