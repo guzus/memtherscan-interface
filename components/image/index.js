@@ -21,7 +21,7 @@ const Frame = styled.div`
   margin: 0 auto;
   margin-top: 5%;
   margin-bottom: 5%;
-  border: 10px solid orangered;
+  border: 2px solid gray;
   border-radius: 10px;
   // border-style: dashed;
 `;
@@ -32,7 +32,7 @@ const ImageTag = styled.div`
   padding: 1px;
 `;
 
-function Image({ id, url, tags, links, timestamp }) {
+function Image({ id, url, tags, links, timestamp, border }) {
   const router = useRouter();
   return (
     <Frame className="meme">
@@ -64,7 +64,7 @@ function Image({ id, url, tags, links, timestamp }) {
         onClick={() => router.push(`/meme/${id}`)}
       />
       <div>
-        {timestamp !== "0001-01-01T00:00:00Z" && (
+        {timestamp !== "0001-01-01T00:00:00Z" && timestamp && (
           <div>uploaded {formatDate(timestamp)}</div>
         )}
       </div>

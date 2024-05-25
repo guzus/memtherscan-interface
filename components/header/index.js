@@ -44,15 +44,14 @@ export default function Header({
         <link rel="canonical" href={url} />
       </Head>
       <HeaderSection>
-        <h1 className="title">
+        <h1 className="title" style={{ padding: "3%" }}>
           <Link
             href={"/"}
             style={{
               fontFamily: "Georgia",
               color: "yellow",
               background: "red",
-              padding: "10px",
-              margin: "10px",
+              fontSize: "2em",
             }}
           >
             Memtherscan

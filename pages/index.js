@@ -34,6 +34,11 @@ const infoTagStyle = {
   background: "blue",
 };
 
+const speicalTagStyle = {
+  color: "white",
+  background: "#daa520",
+};
+
 function TagBar({ createQueryString }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -73,6 +78,13 @@ function TagBar({ createQueryString }) {
         style={infoTagStyle}
       >
         wtf?
+      </button>
+      <button
+        className="tag"
+        onClick={() => router.push("/kabosu")}
+        style={speicalTagStyle}
+      >
+        Remembering Kabosu
       </button>
     </ScrollMenu>
   );
