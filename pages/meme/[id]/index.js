@@ -5,6 +5,29 @@ import Footer from "../../../components/footer";
 import { BASE_URL } from "../../../constants";
 import { useRouter } from "next/router";
 import Loading from "../../../components/loading";
+import styled from "styled-components";
+import { TwitterShareButton, TwitterIcon } from "react-share";
+
+const ShareButton = styled.button`
+  padding: 1em 2em;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+  font-size: 1em;
+  margin: 1em;
+
+  &:hover {
+    background-color: #005bb5;
+  }
+`;
+
+const ShareContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+`;
 
 function Detail() {
   const router = useRouter();
@@ -67,13 +90,23 @@ function Detail() {
       ) : error ? (
         <div>{`There is a problem fetching the data - ${error}`}</div>
       ) : (
-        <Image
-          id={id}
-          url={data.url}
-          tags={data.tags}
-          links={data.links}
-          timestamp={data.timestamp}
-        />
+        <>
+          <Image
+            id={id}
+            url={data.url}
+            tags={data.tags}
+            links={data.links}
+            timestamp={data.timestamp}
+          />
+          <ShareContainer>
+            <TwitterShareButton
+              url={window.location.href}
+              title="Check out this meme!"
+            >
+              <TwitterIcon size={32} round />
+            </TwitterShareButton>
+          </ShareContainer>
+        </>
       )}
       <Footer />
     </div>
