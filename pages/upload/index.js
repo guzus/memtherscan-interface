@@ -7,24 +7,57 @@ import { BASE_URL } from "../../constants";
 import { useRouter } from "next/navigation";
 
 const UploadWrapper = styled.section`
-  padding: 10px;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: solid 0.1em;
-  border-radius: 10px;
-  border-color: black;
+  padding: 2em;
+  width: 80vw;
+  margin: 2vh auto;
+  border: solid 0.1em black;
+  border-radius: 1em;
+  background-color: #f9f9f9;
 `;
 
 const SubmitWrapper = styled.section`
-  padding: 10px;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding: 1em;
+  width: 80vw;
+  margin: 2vh auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1em;
+`;
+
+const SubmitButton = styled.button`
+  padding: 1em 2em;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 1em;
+
+  &:hover {
+    background-color: #005bb5;
+  }
+`;
+
+const FileInput = styled.input`
+  display: none;
+`;
+
+const FileInputLabel = styled.label`
+  padding: 1em 2em;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 1em;
+  display: inline-block;
+
+  &:hover {
+    background-color: #005bb5;
+  }
 `;
 
 function FileUploadPage() {
@@ -71,7 +104,7 @@ function FileUploadPage() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              padding: "8px",
+              padding: "2em",
             }}
           >
             <div style={{ width: "100%", color: "white" }}>
@@ -83,24 +116,21 @@ function FileUploadPage() {
           </div>
         </Modal>
       )}
-      <Header></Header>
+      <Header />
       <div>
         <UploadWrapper>
           <h2>Upload an image</h2>
-          {/*<div>*/}
-          {/*  Choose tags*/}
-          {/*</div>*/}
-          <input type="file" name="file" onChange={changeHandler} />
+          <FileInputLabel htmlFor="file">Choose File</FileInputLabel>
+          <FileInput
+            type="file"
+            id="file"
+            name="file"
+            onChange={changeHandler}
+          />
           {isFilePicked ? (
             <div>
-              {/*<p>Filename: {selectedFile.name}</p>*/}
-              {/* <p>Filetype: {selectedFile.type}</p> */}
-              <br/>
+              <br />
               <p>Size: {selectedFile?.size / 1000} KB</p>
-              {/* <p>
-                lastModifiedDate:{" "}
-                {selectedFile.lastModifiedDate.toLocaleDateString()}
-              </p> */}
             </div>
           ) : (
             <p></p>
@@ -109,9 +139,7 @@ function FileUploadPage() {
           <i>NOTE: mp4 isn't supported yet! (we're working on it)</i>
         </UploadWrapper>
         <SubmitWrapper>
-          <div>
-            <button onClick={handleSubmission}>Submit</button>
-          </div>
+          <SubmitButton onClick={handleSubmission}>Submit</SubmitButton>
           <div>
             {isUploadSuccessful ? (
               <>
