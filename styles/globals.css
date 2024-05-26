@@ -74,10 +74,10 @@ button {
 .tag {
   color: black;
   opacity: 100%;
-  font-size: 20px;
+  font-size: 1em;
   margin: 1vw;
   border: 0.1vw solid transparent;
-  border-radius: 5px;
+  border-radius: 0.5em;
 }
 
 /* img */
@@ -90,12 +90,6 @@ img {
   margin-bottom: 5%;
 }
 
-.borderless_button {
-  opacity: 100%;
-  font-size: 20px;
-  border: 0;
-  background-color: transparent;
-}
 
 .App-logo {
   height: 40vmin;

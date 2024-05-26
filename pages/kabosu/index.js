@@ -27,18 +27,22 @@ function KabosuPage() {
           <Image
             id="7OTWgjA59hSEHJf9rQmV"
             url="https://r2-public-worker.golanger.workers.dev/dc958412-da3a-4c4c-a60c-d306e7c37850_kabosu.webp"
+            shiver={false}
           />
           <Image
             id="KBKytyaykuvI9usuwzBD"
             url="https://r2-public-worker.golanger.workers.dev/57410f21-d959-4a39-ade0-76a0a7303d6f_kabosu2.webp"
+            shiver={false}
           />
           <Image
             id="XJhSzmCX4nJr6gVNzJGd"
             url="https://r2-public-worker.golanger.workers.dev/b3a4146e-ef88-4e27-a0a5-e69be326963b_kabosu3.webp"
+            shiver={false}
           />
           <Image
             id="LUG7AiGHhEBWkmtown2N"
             url="https://r2-public-worker.golanger.workers.dev/0c99d432-73d9-4749-aa6c-72ffab2ff27e_IMG_9259.jpeg"
+            shiver={false}
           />
         </TextWrapper>
       </div>

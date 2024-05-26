@@ -53,6 +53,13 @@ function TagBar({ createQueryString }) {
 
   return (
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+      <button
+        className="tag"
+        onClick={() => router.push("/kabosu")}
+        style={speicalTagStyle}
+      >
+        Remembering Kabosu
+      </button>
       {tags.map(({ title, key, value }) => (
         <button
           className="tag"
@@ -78,13 +85,6 @@ function TagBar({ createQueryString }) {
         style={infoTagStyle}
       >
         wtf?
-      </button>
-      <button
-        className="tag"
-        onClick={() => router.push("/kabosu")}
-        style={speicalTagStyle}
-      >
-        Remembering Kabosu
       </button>
     </ScrollMenu>
   );

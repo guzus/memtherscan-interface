@@ -1,9 +1,17 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useRouter } from "next/navigation";
 import { formatDate } from "../../lib/date";
 import Link from "next/link";
+
+const horizontalShiver = keyframes`
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(2px); }
+`;
 
 const Wrapper = styled.section`
   padding: 10px;
@@ -23,7 +31,11 @@ const Frame = styled.div`
   margin-bottom: 5%;
   border: 2px solid gray;
   border-radius: 10px;
-  // border-style: dashed;
+  ${({ shiver, shiverDuration }) =>
+    shiver &&
+    css`
+      animation: ${horizontalShiver} ${shiverDuration || "0.1s"} infinite;
+    `}
 `;
 
 const ImageTag = styled.div`
@@ -32,10 +44,18 @@ const ImageTag = styled.div`
   padding: 1px;
 `;
 
-function Image({ id, url, tags, links, timestamp, border }) {
+function Image({
+  id,
+  url,
+  tags,
+  links,
+  timestamp,
+  shiver = true,
+  shiverDuration = "1s",
+}) {
   const router = useRouter();
   return (
-    <Frame className="meme">
+    <Frame className="meme" shiver={shiver} shiverDuration={shiverDuration}>
       <div className="tags">
         {tags &&
           tags.map(({ name }) => {
