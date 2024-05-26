@@ -9,8 +9,7 @@ import styled from "styled-components";
 import { TwitterShareButton, TwitterIcon } from "react-share";
 
 const ShareButton = styled.button`
-  padding: 1em 2em;
-  background-color: #0070f3;
+  background-color: transparent;
   color: white;
   border: none;
   border-radius: 0.5em;
@@ -70,6 +69,17 @@ function Detail() {
     fetchData();
   }, [fetchData]);
 
+  const handleCopyUrl = () => {
+    navigator.clipboard.writeText(window.location.href).then(
+      () => {
+        alert("LFG! URL copied to clipboard.");
+      },
+      (err) => {
+        console.error("Could not copy text: ", err);
+      }
+    );
+  };
+
   const memoizedHeader = useMemo(
     () => (
       <Header
@@ -105,6 +115,7 @@ function Detail() {
             >
               <TwitterIcon size={32} round />
             </TwitterShareButton>
+            <ShareButton onClick={handleCopyUrl}>📎</ShareButton>
           </ShareContainer>
         </>
       )}
