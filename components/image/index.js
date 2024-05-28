@@ -54,35 +54,44 @@ function Image({
   shiverDuration = "1s",
 }) {
   const router = useRouter();
+  const isVideo = url.endsWith(".mp4");
+
   return (
     <Frame className="meme" shiver={shiver} shiverDuration={shiverDuration}>
       <div className="tags">
         {tags &&
-          tags.map(({ name }) => {
-            return (
-              <ImageTag className="tag" key={name}>
-                #{name}
-              </ImageTag>
-            );
-          })}
+          tags.map(({ name }) => (
+            <ImageTag className="tag" key={name}>
+              #{name}
+            </ImageTag>
+          ))}
       </div>
       <div className="links">
         {links &&
-          links.map(({ platform, url }) => {
-            return (
-              <ImageTag className="link" key={url}>
-                <Link href={url}>
-                  {platform} : {url}
-                </Link>
-              </ImageTag>
-            );
-          })}
+          links.map(({ platform, url }) => (
+            <ImageTag className="link" key={url}>
+              <Link href={url}>
+                {platform} : {url}
+              </Link>
+            </ImageTag>
+          ))}
       </div>
-      <LazyLoadImage
-        src={url}
-        alt="crypto-meme"
-        onClick={() => router.push(`/meme/${id}`)}
-      />
+      {isVideo ? (
+        <video
+          controls
+          onClick={() => router.push(`/meme/${id}`)}
+          style={{ width: "100%", borderRadius: "10px" }}
+        >
+          <source src={url} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      ) : (
+        <LazyLoadImage
+          src={url}
+          alt="crypto-meme"
+          onClick={() => router.push(`/meme/${id}`)}
+        />
+      )}
       <div>
         {timestamp !== "0001-01-01T00:00:00Z" && timestamp && (
           <div>uploaded {formatDate(timestamp)}</div>
