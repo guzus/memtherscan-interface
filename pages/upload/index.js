@@ -136,7 +136,6 @@ function FileUploadPage() {
             <p></p>
           )}
           <br />
-          <i>NOTE: mp4 isn't supported yet! (we're working on it)</i>
         </UploadWrapper>
         <SubmitWrapper>
           <SubmitButton onClick={handleSubmission}>Submit</SubmitButton>
