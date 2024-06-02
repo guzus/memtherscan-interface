@@ -38,6 +38,11 @@ const SubmitButton = styled.button`
   &:hover {
     background-color: #005bb5;
   }
+
+  &:disabled {
+    background-color: #gray;
+    cursor: not-allowed;
+  }
 `;
 
 const FileInput = styled.input`
@@ -66,6 +71,7 @@ function FileUploadPage() {
   const [isFilePicked, setIsFilePicked] = useState(false);
   const [isUploadSuccessful, setIsUploadSuccessful] = useState(false);
   const [isUploadSubmitted, setIsUploadSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -74,6 +80,7 @@ function FileUploadPage() {
 
   const handleSubmission = () => {
     setIsUploadSubmitted(true);
+    setIsSubmitting(true);
     const formData = new FormData();
 
     formData.append("tags", tags);
@@ -90,6 +97,9 @@ function FileUploadPage() {
       })
       .catch((error) => {
         console.error("Error:", error);
+      })
+      .finally(() => {
+        setIsSubmitting(false);
       });
   };
 
@@ -138,7 +148,9 @@ function FileUploadPage() {
           <br />
         </UploadWrapper>
         <SubmitWrapper>
-          <SubmitButton onClick={handleSubmission}>Submit</SubmitButton>
+          <SubmitButton onClick={handleSubmission} disabled={isSubmitting}>
+            {isSubmitting ? "Uploading..." : "Submit"}
+          </SubmitButton>
           <div>
             {isUploadSuccessful ? (
               <>
